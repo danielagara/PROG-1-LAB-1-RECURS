@@ -1,0 +1,3 @@
+PARA CREAR UNA FUNCION PRIVADA:
+la funcion privada es la que se usa solo en el .c, por lo tanto la defino usando la palabra static al principio de la misma, y
+dentro del archivo en la parte superior, pongo el prototipo.

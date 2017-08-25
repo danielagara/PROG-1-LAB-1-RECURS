@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1503622025 source:d:\clasesprogramacion\clase4\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Calculadora.h"
+	"Consola.h"
+
+1503622025 source:d:\clasesprogramacion\clase4\calculadora.c
+	<stdio.h>
+	<stdlib.h>
+	"Calculadora.h"
+
+1503621972 d:\clasesprogramacion\clase4\calculadora.h
+
+1503622025 source:d:\clasesprogramacion\clase4\consola.c
+	<stdio.h>
+	<stdlib.h>
+	"Consola.h"
+
+1503621972 d:\clasesprogramacion\clase4\consola.h
+

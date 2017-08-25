@@ -19,7 +19,7 @@ int main()
     else
     {
         flagX=0;
-        if((TomaNumero("Ingrese un numero PARTE 2\n","ERROR: El numero no esta dentro del rango\n", &y, 100, -100))==-1)
+        if((TomaNumero("Ingrese un numero\n","ERROR: El numero no esta dentro del rango\n", &y, 100.000, -100.000))==-1)
         {
         }
         else

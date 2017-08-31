@@ -1,0 +1,25 @@
+# depslib dependency file v1.0
+1504141164 source:c:\clase_5\lib.c
+	"Lib.h"
+	<stdio.h>
+	<stdlib.h>
+
+1504141164 c:\clase_5\lib.h
+
+1504141298 source:c:\clase_5\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Lib.h"
+
+1504211993 source:c:\users\daniela\documents\facu\segundo cuatrimestre\proglab 1\github\prog-1-lab-1-recurs-master\clase_5\lib.c
+	"Lib.h"
+	<stdio.h>
+	<stdlib.h>
+
+1504211993 c:\users\daniela\documents\facu\segundo cuatrimestre\proglab 1\github\prog-1-lab-1-recurs-master\clase_5\lib.h
+
+1504212051 source:c:\users\daniela\documents\facu\segundo cuatrimestre\proglab 1\github\prog-1-lab-1-recurs-master\clase_5\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Lib.h"
+

@@ -1,0 +1,2 @@
+&array[0]==array
+si en el scanf por ej paso solo el nombre de mi array, sin el & ni el indice, solo va a referirse al primer elemento de mi array

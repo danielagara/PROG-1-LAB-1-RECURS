@@ -3,6 +3,14 @@
 #include <stdlib.h>
 #define Null 0
 
+/** \brief CARGA ARRAY ESTADO
+ *
+ * \param
+ * \param
+ * \return
+ *
+ */
+
 int cargaEstado(int estado[], int qtyMaxima)
 {
     int i;
@@ -20,38 +28,60 @@ int cargaEstado(int estado[], int qtyMaxima)
 
 }
 
+/** \brief OBTIENE DATOS DEL USUARIO
+ *
+ * \param
+ * \param
+ * \return
+ *
+ */
+
 int obtenerDatos (int edad[], float salario[], int estado[], int qtyMaxima)
 {
     int i;
     int retorno=-1;
     float aux;
+    char opcion='s';
 
-    for(i = 0; i < qtyMaxima ; i++)
+    int espacioDisponible;
+    while(opcion=='s')
     {
-        if(estado[i]==-1)
+        for(i=0;i<qtyMaxima;i++)
         {
-            estado[i]=0;
-            printf("\nIngrese edad persona [%d]: ", i+1);
-            fflush(stdin);
-            scanf("%d", &edad[i]);
-
-            printf("\nIngrese salario persona [%d]: ", i+1);
-            fflush(stdin);
-            scanf("%f", &aux);
-
-            salario[i]=aux;
-
-            retorno=0;
+            if(estado[i]==-1)
+            {
+                espacioDisponible=i;
+                break;
+            }
         }
-        /*else
-        {
-            printf("NO SE PUEDEN INGRESAR MAS EDADES DE USUARIOS\n");
-        }*/
+        estado[espacioDisponible]=0;
+        printf("\nIngrese edad persona [%d]: ", espacioDisponible+1);
+        fflush(stdin);
+        scanf("%d", &edad[espacioDisponible]);
+
+        printf("\nIngrese salario persona [%d]: ", espacioDisponible+1);
+        fflush(stdin);
+        scanf("%f", &aux);
+
+        salario[espacioDisponible]=aux;
+
+        retorno=0;
+        printf("DESEA SEGUIR INGRESANDO DATOS? S o N\n");
+        fflush(stdin);
+        scanf("%c", &opcion);
+        printf("%c", opcion);
+
     }
-
     return retorno;
-
 }
+
+/** \brief MUESTRA DATOS CARGADOS
+ *
+ * \param
+ * \param
+ * \return
+ *
+ */
 
 int mostrarDatos(int edad[], float salario[], int estado[], int qtyMaxima)
 {
@@ -69,6 +99,14 @@ int mostrarDatos(int edad[], float salario[], int estado[], int qtyMaxima)
     }
     return retorno;
 }
+
+/** \brief CALCULA PROMEDIO DE LA EDAD
+ *
+ * \param
+ * \param
+ * \return
+ *
+ */
 
 int calcularPromedio(int edad[], int estado[], int qtyMaxima, float* promedio)
 {
@@ -95,6 +133,13 @@ int calcularPromedio(int edad[], int estado[], int qtyMaxima, float* promedio)
     return retorno;
 }
 
+/** \brief CALCULA SALARIO MAXIMO
+ *
+ * \param
+ * \param
+ * \return
+ *
+ */
 
 int calcularMaximo(float salario[], int estado[], int qtyMaxima)
 {
@@ -107,10 +152,14 @@ int calcularMaximo(float salario[], int estado[], int qtyMaxima)
         iMaximo = 0;
         for(i = 1; i < qtyMaxima; i++)
         {
+            if(estado[i]!=-1)
+            {
                 if(salario[i]>salario[iMaximo])
                 {
                     iMaximo = i;
                 }
+            }
+
         }
         retorno = iMaximo;
     }

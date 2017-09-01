@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "Lib.h"
-#define CANT_EMPLEADOS 3
+#define CANT_EMPLEADOS 5
 
 
 int main()

@@ -1,0 +1,15 @@
+int validarNumerico(char* buffer)
+{
+  int retorno=0,i=0;
+  while(buffer[i]!='\0')
+  {
+    if(buffer[i]<='0' || buffer[i]>='9')
+    {
+      retorno=-1;
+      break:
+    }
+      i++;
+   }
+}
+
+int getEdad(

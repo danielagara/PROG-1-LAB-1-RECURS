@@ -1,0 +1,28 @@
+# depslib dependency file v1.0
+1505956510 source:d:\parcial_2\asociado.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"validar.h"
+	"asociado.h"
+
+1505956617 d:\parcial_2\validar.h
+
+1505955033 d:\parcial_2\asociado.h
+
+1505956522 source:d:\parcial_2\llamada.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"validar.h"
+	"llamada.h"
+
+1505956548 d:\parcial_2\llamada.h
+
+1505956570 source:d:\parcial_2\main.c
+	<stdio.h>
+	<stdlib.h>
+	"validar.h"
+	"asociado.h"
+	"llamada.h"
+

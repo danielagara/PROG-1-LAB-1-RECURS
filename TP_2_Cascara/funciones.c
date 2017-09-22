@@ -263,18 +263,15 @@ void perso_imprimirGrafico(EPersona* arrayPersona, int longitud)
             }
         }
 
-        for (i=longitud-1;i>0;i--)
+        for (i=0;i<longitud;i++)
         {
             for (j=0;j<3;j++)
             {
-                if(grafico[i][j]=='*')
-                {
-                    printf("%c",grafico[i][j]);
-                }
+                    printf("%c \t",grafico[i][j]);
             }
             printf("\n");
         }
-        printf("\n<18 - 19-35 - >35\n");
+        printf("\n<18   19/35   >35\n");
     }
 
 }

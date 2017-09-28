@@ -1,0 +1,34 @@
+# depslib dependency file v1.0
+1506626863 source:c:\users\daniela\desktop\practica_parcial_ambulancia\asociado.c
+	<stdio.h>
+	<stdlib.h>
+	"asociado.h"
+	"validar.h"
+	<string.h>
+
+1506610073 c:\users\daniela\desktop\practica_parcial_ambulancia\asociado.h
+
+1506620609 c:\users\daniela\desktop\practica_parcial_ambulancia\validar.h
+
+1506626863 source:c:\users\daniela\desktop\practica_parcial_ambulancia\llamada.c
+	<stdio.h>
+	<stdlib.h>
+	"llamada.h"
+	"validar.h"
+	<string.h>
+
+1506627058 c:\users\daniela\desktop\practica_parcial_ambulancia\llamada.h
+
+1506621102 source:c:\users\daniela\desktop\practica_parcial_ambulancia\main.c
+	<stdio.h>
+	<stdlib.h>
+	"asociado.h"
+	"llamada.h"
+	"validar.h"
+
+1506620609 source:c:\users\daniela\desktop\practica_parcial_ambulancia\validar.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"validar.h"
+

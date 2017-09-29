@@ -3,6 +3,7 @@
 #include "asociado.h"
 #include "llamada.h"
 #include "validar.h"
+#include "estadisticas.h"
 #define TAM_ASOCIADOS 20
 #define TAM_LLAMADAS 100
 
@@ -39,8 +40,10 @@ int main()
 
             case 6:
                 //1: FALTA
-
+                printf("\n  El nombre y apellido del asociado con mas llamados: \n");
+                est_AsociadoMaxLlamadas(arrayAsociados,TAM_ASOCIADOS, arrayLlamadas,TAM_LLAMADAS);
                 //2:
+                printf("\n El o los motivo/s mas recurrente/s y su cantidad: \n");
                 llama_motivoMasRecurrente(arrayLlamadas,TAM_LLAMADAS);
                 //3: FALTA
 
@@ -51,3 +54,4 @@ int main()
 
     return 0;
 }
+

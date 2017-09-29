@@ -149,34 +149,18 @@ int llama_asignaAmbualncia(ELlamadas* arrayLlamadas, int len)
     return retorno;
 }
 
-
 void llama_motivoMasRecurrente(ELlamadas* arrayLlamadas, int len)
 {
-    int i;
-    int retorno=-1;
+    //int i;
     int contadorACV=0;
     int contadorINFARTO=0;
     int contadorGRIPE=0;
     int mayor=-1;
     char nombreMotivo[51];
 
-    for(i=0;i<len;i++)
-    {
-        if(arrayLlamadas[i].motivoLlamada==MOTIVO_LLAMADA_ACV)
-        {
-            contadorACV++;
-        }
-
-        if(arrayLlamadas[i].motivoLlamada==MOTIVO_LLAMADA_INFARTO)
-        {
-            contadorINFARTO++;
-        }
-
-        if(arrayLlamadas[i].motivoLlamada==MOTIVO_LLAMADA_GRIPE)
-        {
-            contadorGRIPE++;
-        }
-    }
+    contadorACV=llama_cuentaMotivos(arrayLlamadas,len,MOTIVO_LLAMADA_ACV);
+    contadorINFARTO=llama_cuentaMotivos(arrayLlamadas,len,MOTIVO_LLAMADA_INFARTO);
+    contadorGRIPE=llama_cuentaMotivos(arrayLlamadas,len,MOTIVO_LLAMADA_GRIPE);
 
     if(contadorACV>contadorINFARTO && contadorACV>contadorGRIPE)
     {
@@ -200,3 +184,40 @@ void llama_motivoMasRecurrente(ELlamadas* arrayLlamadas, int len)
     }
 
 }
+
+int llama_cuentaLlamadas(ELlamadas* arrayLlamadas, int len, int id_asociado)
+{
+    int retorno=-1;
+    int i;
+    int cantidadLlamadas=0;
+
+    for(i=0;i<len;i++)
+    {
+        if(arrayLlamadas[i].id_asociado==id_asociado && (arrayLlamadas[i].estadoLlamada==ESTADO_LLAMADA_CUMPLIDO || arrayLlamadas[i].estadoLlamada==ESTADO_LLAMADA_PENDIENTE))
+        {
+            cantidadLlamadas++;
+        }
+    }
+    retorno=cantidadLlamadas;
+    return retorno;
+}
+
+int llama_cuentaMotivos(ELlamadas* arrayLlamadas, int len, int motivo)
+{
+    int retorno=-1;
+    int i;
+    int cantidadLlamadasMotivo=0;
+
+    for(i=0;i<len;i++)
+    {
+        if(arrayLlamadas[i].motivoLlamada==motivo)
+        {
+            cantidadLlamadasMotivo++;
+        }
+    }
+
+    retorno=cantidadLlamadasMotivo;
+    return retorno;
+}
+
+

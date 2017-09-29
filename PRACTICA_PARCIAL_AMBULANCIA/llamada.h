@@ -26,3 +26,5 @@ int llama_buscarIndiceLlamadaLibre (ELlamadas* arrayLlamadas, int longitud);
 int llama_initLlamadas (ELlamadas* arrayLlamadas, int longitud);
 int llama_asignaAmbualncia(ELlamadas* arrayLlamadas, int len);
 void llama_motivoMasRecurrente(ELlamadas* arrayLlamadas, int len);
+int llama_cuentaLlamadas(ELlamadas* arrayLlamadas, int len, int id_asociado);
+int llama_cuentaMotivos(ELlamadas* arrayLlamadas, int len, int motivo);

@@ -40,13 +40,14 @@ int main()
 
             case 6:
                 //1: FALTA
-                printf("\n  El nombre y apellido del asociado con mas llamados: \n");
+                printf("\n  -El nombre y apellido del asociado con mas llamados: \n");
                 est_AsociadoMaxLlamadas(arrayAsociados,TAM_ASOCIADOS, arrayLlamadas,TAM_LLAMADAS);
                 //2:
-                printf("\n El o los motivo/s mas recurrente/s y su cantidad: \n");
+                printf("\n -El o los motivo/s mas recurrente/s y su cantidad: \n");
                 llama_motivoMasRecurrente(arrayLlamadas,TAM_LLAMADAS);
                 //3: FALTA
-
+                printf("\n-El motivo que en promedio mas demora en ser resuelto: \n");
+                llama_motivoConMayorTiempoPromedio(arrayLlamadas,TAM_LLAMADAS);
                 break;
         }
 

@@ -44,3 +44,48 @@
 	"validar.h"
 	"estadisticas.h"
 
+1506704820 source:c:\users\daniela\documents\facu\segundo cuatrimestre\proglab 1\github\prog-1-lab-1-recurs-master\practica_parcial_ambulancia\estadisticas.c
+	<stdio.h>
+	<stdlib.h>
+	"llamada.h"
+	"validar.h"
+	"asociado.h"
+	"estadisticas.h"
+	<string.h>
+
+1506706151 c:\users\daniela\documents\facu\segundo cuatrimestre\proglab 1\github\prog-1-lab-1-recurs-master\practica_parcial_ambulancia\llamada.h
+
+1506634042 c:\users\daniela\documents\facu\segundo cuatrimestre\proglab 1\github\prog-1-lab-1-recurs-master\practica_parcial_ambulancia\validar.h
+
+1506711300 c:\users\daniela\documents\facu\segundo cuatrimestre\proglab 1\github\prog-1-lab-1-recurs-master\practica_parcial_ambulancia\asociado.h
+
+1506634042 c:\users\daniela\documents\facu\segundo cuatrimestre\proglab 1\github\prog-1-lab-1-recurs-master\practica_parcial_ambulancia\estadisticas.h
+
+1506706705 source:c:\users\daniela\documents\facu\segundo cuatrimestre\proglab 1\github\prog-1-lab-1-recurs-master\practica_parcial_ambulancia\llamada.c
+	<stdio.h>
+	<stdlib.h>
+	"llamada.h"
+	"validar.h"
+	<string.h>
+
+1506706276 source:c:\users\daniela\documents\facu\segundo cuatrimestre\proglab 1\github\prog-1-lab-1-recurs-master\practica_parcial_ambulancia\main.c
+	<stdio.h>
+	<stdlib.h>
+	"asociado.h"
+	"llamada.h"
+	"validar.h"
+	"estadisticas.h"
+
+1506634042 source:c:\users\daniela\documents\facu\segundo cuatrimestre\proglab 1\github\prog-1-lab-1-recurs-master\practica_parcial_ambulancia\validar.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"validar.h"
+
+1506711301 source:c:\users\daniela\documents\facu\segundo cuatrimestre\proglab 1\github\prog-1-lab-1-recurs-master\practica_parcial_ambulancia\asociado.c
+	<stdio.h>
+	<stdlib.h>
+	"asociado.h"
+	"validar.h"
+	<string.h>
+

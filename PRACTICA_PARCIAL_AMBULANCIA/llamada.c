@@ -151,39 +151,75 @@ int llama_asignaAmbualncia(ELlamadas* arrayLlamadas, int len)
 
 void llama_motivoMasRecurrente(ELlamadas* arrayLlamadas, int len)
 {
-    //int i;
-    int contadorACV=0;
-    int contadorINFARTO=0;
-    int contadorGRIPE=0;
-    int mayor=-1;
-    char nombreMotivo[51];
+    int i;
+    int maxMotivo=0;
+    int idMotivo;
+    int cantidadAUX=0;
 
-    contadorACV=llama_cuentaMotivos(arrayLlamadas,len,MOTIVO_LLAMADA_ACV);
-    contadorINFARTO=llama_cuentaMotivos(arrayLlamadas,len,MOTIVO_LLAMADA_INFARTO);
-    contadorGRIPE=llama_cuentaMotivos(arrayLlamadas,len,MOTIVO_LLAMADA_GRIPE);
-
-    if(contadorACV>contadorINFARTO && contadorACV>contadorGRIPE)
+    for(i=0;i<len;i++)
     {
-        mayor=contadorACV;
-        strncpy(nombreMotivo,"ACV",51);
-    }
-    if(contadorINFARTO>contadorGRIPE && contadorINFARTO>contadorACV)
-    {
-        mayor=contadorINFARTO;
-        strncpy(nombreMotivo,"INFARTO",51);
-    }
-    if(contadorGRIPE>contadorACV && contadorGRIPE>contadorINFARTO)
-    {
-        mayor=contadorGRIPE;
-        strncpy(nombreMotivo,"GRIPE",51);
+        if(arrayLlamadas[i].estadoLlamada==ESTADO_LLAMADA_CUMPLIDO || arrayLlamadas[i].estadoLlamada==ESTADO_LLAMADA_PENDIENTE)
+        {
+            cantidadAUX=llama_cuentaMotivos(arrayLlamadas,len,arrayLlamadas[i].motivoLlamada);
+            if(cantidadAUX>maxMotivo)
+            {
+                maxMotivo=cantidadAUX;
+                idMotivo=arrayLlamadas[i].motivoLlamada;
+            }
+        }
     }
 
-    if(mayor!=-1)
+    switch(idMotivo)
     {
-         printf("\nEL MOTIVO MAS RECURRENTE ES: %s Y LA CANTIDAD DE VECES QUE FUE SOLICITADO: %d", nombreMotivo, mayor);
+        case MOTIVO_LLAMADA_ACV:
+            printf("EL MOTIVO CON MAS LLAMADAS ES ACV, Y LA CANTIDAD DE LLAMADAS ES: %d \n", maxMotivo);
+            break;
+        case MOTIVO_LLAMADA_GRIPE:
+            printf("EL MOTIVO CON MAS LLAMADAS ES GRIPE, Y LA CANTIDAD DE LLAMADAS ES: %d \n", maxMotivo);
+            break;
+        case MOTIVO_LLAMADA_INFARTO:
+            printf("EL MOTIVO CON MAS LLAMADAS ES INFARTO, Y LA CANTIDAD DE LLAMADAS ES: %d \n", maxMotivo);
+            break;
     }
 
 }
+
+
+void llama_motivoConMayorTiempoPromedio(ELlamadas* arrayLlamadas, int len)
+{
+    int i;
+    float maxMotivo=0;
+    int idMotivo;
+    float cantidadAUX=0;
+
+    for(i=0;i<len;i++)
+    {
+        if(arrayLlamadas[i].estadoLlamada==ESTADO_LLAMADA_CUMPLIDO)
+        {
+            cantidadAUX=llama_sacaPromedioTiempoMotivos(arrayLlamadas,len,arrayLlamadas[i].motivoLlamada);
+            if(cantidadAUX>maxMotivo)
+            {
+                maxMotivo=cantidadAUX;
+                idMotivo=arrayLlamadas[i].motivoLlamada;
+            }
+        }
+    }
+
+    switch(idMotivo)
+    {
+        case MOTIVO_LLAMADA_ACV:
+            printf("EL MOTIVO QUE EN PROMEDIO TARDA MAS EN RESOLVERSE ES ACV, CON UN PROMEDIO DE %.2f minutos", cantidadAUX);
+            break;
+        case MOTIVO_LLAMADA_GRIPE:
+            printf("EL MOTIVO QUE EN PROMEDIO TARDA MAS EN RESOLVERSE ES GRIPE, CON UN PROMEDIO DE %.2f minutos", cantidadAUX);
+            break;
+        case MOTIVO_LLAMADA_INFARTO:
+            printf("EL MOTIVO QUE EN PROMEDIO TARDA MAS EN RESOLVERSE ES INFARTO, CON UN PROMEDIO DE %.2f minutos", cantidadAUX);
+            break;
+    }
+
+}
+
 
 int llama_cuentaLlamadas(ELlamadas* arrayLlamadas, int len, int id_asociado)
 {
@@ -220,4 +256,25 @@ int llama_cuentaMotivos(ELlamadas* arrayLlamadas, int len, int motivo)
     return retorno;
 }
 
+
+float llama_sacaPromedioTiempoMotivos(ELlamadas* arrayLlamadas, int len, int motivo)
+{
+    float retorno=-1;
+    int i;
+    int acumuladorTiempoMotivo=0;
+    int contadorLlamada=0;
+
+    for(i=0;i<len;i++)
+    {
+        if(arrayLlamadas[i].motivoLlamada==motivo)
+        {
+            acumuladorTiempoMotivo=acumuladorTiempoMotivo+arrayLlamadas[i].tiempoInsumido;
+            contadorLlamada++;
+        }
+    }
+
+    retorno=(float)acumuladorTiempoMotivo/contadorLlamada;
+    printf("EL RETORNO EN LA FUNCION CHICA ES %.2f \n", retorno);
+    return retorno;
+}
 

@@ -25,3 +25,4 @@ int asoc_buscarIndiceAsociadoLibre (EAsociado* arrayAsociados, int longitud);
 int asoc_editarAsociado(EAsociado* arrayAsociados,int len);
 int asoc_bajarAsociado(EAsociado* arrayAsociados,int len);
 int asoc_pideId(EAsociado* arrayAsociados,int len);
+int asoc_buscaDNIrepetido(EAsociado* arrayAsociados, int len, char* DNI);

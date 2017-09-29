@@ -64,7 +64,7 @@ int asoc_cargarAsociado(EAsociado* arrayAsociados, int index, int len)
 
     if(arrayAsociados != NULL && index >= 0 && index < len)
     {
-        if(val_getInt(bDNI,"\nDNI?","\nError:\n",3,51)==0)
+        if(val_getInt(bDNI,"\nDNI?","\nError:\n",3,20)==0 && asoc_buscaDNIrepetido(arrayAsociados,len,bDNI)==0)
         {
             if(val_getNombre(bNombre,"\nNOMBRE?","\nError:\n",3,51)==0)
             {
@@ -77,7 +77,7 @@ int asoc_cargarAsociado(EAsociado* arrayAsociados, int index, int len)
 						{
 							strncpy(arrayAsociados[index].nombre,bNombre,51);
 							strncpy(arrayAsociados[index].apellido,bApellido,51);
-							strncpy(arrayAsociados[index].DNI,bDNI,51);
+							strncpy(arrayAsociados[index].DNI,bDNI,20);
 							arrayAsociados[index].edad = atoi(bEdad);
 							arrayAsociados[index].flagDeEstado = ESTADO_ASOCIADO_OCUPADO;
 							arrayAsociados[index].id_asociado= id;
@@ -236,3 +236,21 @@ int asoc_pideId(EAsociado* arrayAsociados,int len)
     return retorno;
 }
 
+
+
+int asoc_buscaDNIrepetido(EAsociado* arrayAsociados, int len, char* DNI)
+{
+    int retorno=0;
+    int i;
+
+    for(i=0;i<len;i++)
+    {
+        if(strcmp(arrayAsociados[i].DNI,DNI)==0)
+        {
+            retorno=-1;
+            break;
+        }
+    }
+
+    return retorno;
+}

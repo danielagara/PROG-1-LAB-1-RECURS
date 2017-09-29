@@ -30,8 +30,7 @@ int est_AsociadoMaxLlamadas(EAsociado* arrayAsociados, int lenAsociados, ELlamad
     {
         if(idAsociadoMAX==arrayAsociados[i].id_asociado)
         {
-            printf("\n SOLO NOMBRE %s \n", arrayAsociados[i].apellido);
-            printf("EL NOMBRE DE LA PERSONA CON MAS LLAMADAS ES: %s, APELLIDO: %s, Y LA CANTIDAD DE LLAMADAS ES: %d \n", arrayAsociados[i].apellido, arrayAsociados[i].apellido, maxLlamadas);
+            printf("EL NOMBRE DE LA PERSONA CON MAS LLAMADAS ES: %s, APELLIDO: %s, Y LA CANTIDAD DE LLAMADAS ES: %d \n", arrayAsociados[i].nombre, arrayAsociados[i].apellido, maxLlamadas);
             break;
         }
     }

@@ -1,0 +1,46 @@
+# depslib dependency file v1.0
+1506973190 source:c:\users\daniela\desktop\practica_parcial_alquiler\alquiler.c
+	<stdio.h>
+	<stdlib.h>
+	"validar.h"
+	"alquiler.h"
+	"string.h"
+
+1506968297 source:c:\users\daniela\desktop\practica_parcial_alquiler\cliente.c
+	<stdio.h>
+	<stdlib.h>
+	"validar.h"
+	"cliente.h"
+	"string.h"
+
+1506697114 c:\users\daniela\desktop\practica_parcial_alquiler\validar.h
+
+1506968255 c:\users\daniela\desktop\practica_parcial_alquiler\cliente.h
+
+1506973190 source:c:\users\daniela\desktop\practica_parcial_alquiler\main.c
+	<stdio.h>
+	<stdlib.h>
+	"validar.h"
+	"cliente.h"
+	"alquiler.h"
+	"estadisticas.h"
+
+1506973190 c:\users\daniela\desktop\practica_parcial_alquiler\alquiler.h
+
+1506968312 source:c:\users\daniela\desktop\practica_parcial_alquiler\validar.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"validar.h"
+
+1506970895 source:c:\users\daniela\desktop\practica_parcial_alquiler\estadisticas.c
+	<stdio.h>
+	<stdlib.h>
+	"alquiler.h"
+	"validar.h"
+	"cliente.h"
+	"estadisticas.h"
+	<string.h>
+
+1506970861 c:\users\daniela\desktop\practica_parcial_alquiler\estadisticas.h
+

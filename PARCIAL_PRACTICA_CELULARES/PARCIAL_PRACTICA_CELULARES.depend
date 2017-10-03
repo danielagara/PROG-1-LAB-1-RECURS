@@ -1,0 +1,44 @@
+# depslib dependency file v1.0
+1506983058 source:d:\parcial_practica_celulares\abonado.c
+	<stdio.h>
+	<stdlib.h>
+	"validar.h"
+	"abonado.h"
+
+1506974630 d:\parcial_practica_celulares\validar.h
+
+1506983022 d:\parcial_practica_celulares\abonado.h
+
+1506990660 source:d:\parcial_practica_celulares\llamada.c
+	<stdio.h>
+	<stdlib.h>
+	"validar.h"
+	"llamada.h"
+
+1506990504 d:\parcial_practica_celulares\llamada.h
+
+1506974630 source:d:\parcial_practica_celulares\validar.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"validar.h"
+
+1506990541 source:d:\parcial_practica_celulares\main.c
+	<stdio.h>
+	<stdlib.h>
+	"validar.h"
+	"abonado.h"
+	"llamada.h"
+	"estadisticas.h"
+
+1506989258 source:d:\parcial_practica_celulares\estadisticas.c
+	<stdio.h>
+	<stdlib.h>
+	"validar.h"
+	"abonado.h"
+	"llamada.h"
+	"estadisticas.h"
+	"string.h"
+
+1506986985 d:\parcial_practica_celulares\estadisticas.h
+

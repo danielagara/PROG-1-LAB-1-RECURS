@@ -39,15 +39,28 @@ int val_validarMail(char* buffer)
 {
     int i=0;
     int retorno = 0;
-    int flagPunto = 0;
+    int flagArroba = 0;
     while(buffer[i] != '\0')
     {
-        if((buffer[i] < '0' || buffer[i] > '9') && buffer[i] != '.' && buffer[i] != '-'  && buffer[i] != '_' && buffer[i] != '@'  && (buffer[i] < 'a' || buffer[i] > 'z'))
+        if((buffer[i] < '0' || buffer[i] > '9') && buffer[i] != '.' && buffer[i] != '-'  && buffer[i] != '_' && buffer[i] != '@'  && (buffer[i] < 'a' || buffer[i] > 'z') && (buffer[i] < 'A' || buffer[i] > 'Z'))
         {
             retorno = -1;
             break;
         }
+        else
+        {
+            if(buffer[i] == '@')
+            {
+                flagArroba++;
+                if(flagArroba > 1)
+                {
+                    retorno = -1;
+                    break;
+                }
+            }
+        }
         i++;
     }
+    
     return retorno;
 }

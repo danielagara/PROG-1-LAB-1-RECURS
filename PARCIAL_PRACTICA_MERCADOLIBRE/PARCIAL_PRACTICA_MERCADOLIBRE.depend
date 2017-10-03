@@ -1,0 +1,45 @@
+# depslib dependency file v1.0
+1506892565 source:c:\users\daniela garat\desktop\parcial_practica_mercadolibre\main.c
+	<stdio.h>
+	<stdlib.h>
+	"usuario.h"
+	"producto.h"
+	"validar.h"
+	"informes.h"
+
+1506892418 c:\users\daniela garat\desktop\parcial_practica_mercadolibre\usuario.h
+
+1506889086 c:\users\daniela garat\desktop\parcial_practica_mercadolibre\producto.h
+
+1506697114 c:\users\daniela garat\desktop\parcial_practica_mercadolibre\validar.h
+
+1506891071 source:c:\users\daniela garat\desktop\parcial_practica_mercadolibre\producto.c
+	<stdio.h>
+	<stdlib.h>
+	"producto.h"
+	"validar.h"
+	<string.h>
+
+1506892405 source:c:\users\daniela garat\desktop\parcial_practica_mercadolibre\usuario.c
+	<stdio.h>
+	<stdlib.h>
+	"usuario.h"
+	"validar.h"
+	"string.h"
+
+1506697114 source:c:\users\daniela garat\desktop\parcial_practica_mercadolibre\validar.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"validar.h"
+
+1506892483 source:c:\users\daniela garat\desktop\parcial_practica_mercadolibre\informes.c
+	<stdio.h>
+	<stdlib.h>
+	"usuario.h"
+	"producto.h"
+	"validar.h"
+	"informes.h"
+
+1506892435 c:\users\daniela garat\desktop\parcial_practica_mercadolibre\informes.h
+

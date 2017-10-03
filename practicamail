@@ -1,0 +1,93 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#define MAX_INPUT_BUFFER 51
+int val_validarMail(char* buffer);
+int val_getMail(char* destino, char* mensaje,char* mensajeError,int intentos,int limite);
+void myFgets(char* buffer, int limite ,FILE* archivo);
+
+int main()
+{
+    char mail[51];
+    if(val_getMail(mail,"INGRESE MAIL  ","ERROR  ",3,51)!=-1)
+    printf("%s   ", mail);
+    return 0;
+}
+
+void myFgets(char* buffer, int limite ,FILE* archivo)
+{
+    int i=0;
+    fgets(buffer, limite ,archivo);
+    buffer[limite-1] = '\0';
+    while(buffer[i] != '\0')
+    {
+        if(buffer[i] == 10)//10 -> LF
+        {
+            buffer[i] = '\0';
+            break;
+        }
+        i++;
+    }
+}
+
+
+int val_getMail(char* destino, char* mensaje,char* mensajeError,int intentos,int limite)
+{
+    int retorno = -1;
+    char buffer[MAX_INPUT_BUFFER];
+
+    if(destino != NULL && limite > 0 && limite < MAX_INPUT_BUFFER)
+    {
+        printf(mensaje);
+        for( ;intentos>0;intentos--)
+        {
+
+            myFgets(buffer, limite ,stdin);
+
+            if(val_validarMail(buffer) == -1)
+            {
+                printf(mensajeError);
+                continue;
+            }
+            else
+            {
+                strncpy(destino,buffer,limite);
+                retorno = 0;
+                break;
+            }
+        }
+
+    }
+    return retorno;
+}
+
+
+int val_validarMail(char* buffer)
+{
+    int i=0;
+    int retorno = 0;
+    int flagArroba = 0;
+    while(buffer[i] != '\0')
+    {
+        if((buffer[i] < '0' || buffer[i] > '9') && buffer[i] != '.' && buffer[i] != '-'  && buffer[i] != '_' && buffer[i] != '@'  && (buffer[i] < 'a' || buffer[i] > 'z') && (buffer[i] < 'A' || buffer[i] > 'Z'))
+        {
+            retorno = -1;
+            break;
+        }
+        else
+        {
+            if(buffer[i] == '@')
+            {
+                flagArroba++;
+                if(flagArroba > 1)
+                {
+                    retorno = -1;
+                    break;
+                }
+            }
+        }
+        i++;
+    }
+
+    return retorno;
+}

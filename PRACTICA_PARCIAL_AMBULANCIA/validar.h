@@ -12,3 +12,4 @@ int val_validarInt(char* buffer);
 void myFgets(char* buffer, int limite ,FILE* archivo);
 
 #endif
+#define MAX_INPUT_BUFFER 4096

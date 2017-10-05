@@ -10,6 +10,14 @@ static int buscarIndiceId (EAsociado* arrayAsociados, int longitud, int id);
 static int modificarAsociadoPorIndice(EAsociado* arrayAsociados, int index);
 //___________________
 
+/** \brief
+ *
+ * \param
+ * \param
+ * \return
+ *
+ */
+
 
 int asoc_editarAsociado(EAsociado* arrayAsociados,int len)
 {
@@ -27,6 +35,14 @@ int asoc_editarAsociado(EAsociado* arrayAsociados,int len)
     }
     return -1;
 }
+
+/** \brief
+ *
+ * \param
+ * \param
+ * \return
+ *
+ */
 
 
 static int modificarAsociadoPorIndice (EAsociado* arrayAsociados, int index)
@@ -51,6 +67,15 @@ static int modificarAsociadoPorIndice (EAsociado* arrayAsociados, int index)
     }
     return retorno;
 }
+
+/** \brief
+ *
+ * \param
+ * \param
+ * \return
+ *
+ */
+
 
 int asoc_cargarAsociado(EAsociado* arrayAsociados, int index, int len)
 {
@@ -95,6 +120,15 @@ int asoc_cargarAsociado(EAsociado* arrayAsociados, int index, int len)
     return retorno;
 }
 
+/** \brief
+ *
+ * \param
+ * \param
+ * \return
+ *
+ */
+
+
 int asoc_initAsociado (EAsociado* arrayAsociados, int longitud)
 {
     int retorno = -1;
@@ -109,6 +143,15 @@ int asoc_initAsociado (EAsociado* arrayAsociados, int longitud)
     }
     return retorno;
 }
+
+/** \brief
+ *
+ * \param
+ * \param
+ * \return
+ *
+ */
+
 
 int asoc_printAsociado(EAsociado* arrayAsociados, int longitud)
 {
@@ -127,6 +170,14 @@ int asoc_printAsociado(EAsociado* arrayAsociados, int longitud)
     }
     return retorno;
 }
+
+/** \brief
+ *
+ * \param
+ * \param
+ * \return
+ *
+ */
 
 
 int asoc_buscarIndiceAsociadoLibre (EAsociado* arrayAsociados, int longitud)
@@ -148,6 +199,13 @@ int asoc_buscarIndiceAsociadoLibre (EAsociado* arrayAsociados, int longitud)
     return retorno;
 }
 
+/** \brief
+ *
+ * \param
+ * \param
+ * \return
+ *
+ */
 
 static int buscarProximoId(EAsociado* arrayAsociados, int longitud)
 {
@@ -167,6 +225,14 @@ static int buscarProximoId(EAsociado* arrayAsociados, int longitud)
     }
     return idMax + 1;
 }
+
+/** \brief
+ *
+ * \param
+ * \param
+ * \return
+ *
+ */
 
 
 static int buscarIndiceId(EAsociado* arrayAsociados, int longitud, int id)
@@ -192,6 +258,14 @@ static int buscarIndiceId(EAsociado* arrayAsociados, int longitud, int id)
     return retorno;
 }
 
+/** \brief
+ *
+ * \param
+ * \param
+ * \return
+ *
+ */
+
 
 int asoc_bajarAsociado(EAsociado* arrayAsociados,int len)
 {
@@ -212,6 +286,14 @@ int asoc_bajarAsociado(EAsociado* arrayAsociados,int len)
 
     return retorno;
 }
+
+/** \brief
+ *
+ * \param
+ * \param
+ * \return
+ *
+ */
 
 
 int asoc_pideId(EAsociado* arrayAsociados,int len)
@@ -236,6 +318,13 @@ int asoc_pideId(EAsociado* arrayAsociados,int len)
     return retorno;
 }
 
+/** \brief
+ *
+ * \param
+ * \param
+ * \return
+ *
+ */
 
 
 int asoc_buscaDNIrepetido(EAsociado* arrayAsociados, int len, char* DNI)
@@ -254,3 +343,5 @@ int asoc_buscaDNIrepetido(EAsociado* arrayAsociados, int len, char* DNI)
 
     return retorno;
 }
+
+

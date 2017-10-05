@@ -3,12 +3,13 @@
 #include <string.h>
 #include "validar.h"
 
-#define MAX_INPUT_BUFFER 4096
-
-// Funciones privadas
-
-//___________________
-
+/** \brief
+ *
+ * \param
+ * \param
+ * \return
+ *
+ */
 
 void myFgets(char* buffer, int limite ,FILE* archivo)
 {
@@ -25,6 +26,14 @@ void myFgets(char* buffer, int limite ,FILE* archivo)
         i++;
     }
 }
+
+/** \brief
+ *
+ * \param
+ * \param
+ * \return
+ *
+ */
 
 int val_getNombre(char* destino, char* mensaje,char* mensajeError,int intentos,int limite)
 {
@@ -60,6 +69,13 @@ int val_getNombre(char* destino, char* mensaje,char* mensajeError,int intentos,i
     return retorno;
 }
 
+/** \brief
+ *
+ * \param
+ * \param
+ * \return
+ *
+ */
 
 
 int val_getFloat(char* destino, char* mensaje,char* mensajeError,int intentos,int limite)
@@ -91,6 +107,13 @@ int val_getFloat(char* destino, char* mensaje,char* mensajeError,int intentos,in
     return retorno;
 }
 
+/** \brief
+ *
+ * \param
+ * \param
+ * \return
+ *
+ */
 
 int val_validarNombre(char* buffer)
 {
@@ -107,6 +130,14 @@ int val_validarNombre(char* buffer)
     }
     return retorno;
 }
+
+/** \brief
+ *
+ * \param
+ * \param
+ * \return
+ *
+ */
 
 int val_validarFloat(char* buffer)
 {
@@ -142,6 +173,13 @@ int val_validarFloat(char* buffer)
     return retorno;
 }
 
+/** \brief
+ *
+ * \param
+ * \param
+ * \return
+ *
+ */
 
 int val_validarInt(char* buffer)
 {
@@ -160,6 +198,13 @@ int val_validarInt(char* buffer)
     return retorno;
 }
 
+/** \brief
+ *
+ * \param
+ * \param
+ * \return
+ *
+ */
 
 int val_getInt(char* destino, char* mensaje,char* mensajeError,int intentos,int limite)
 {
@@ -190,9 +235,13 @@ int val_getInt(char* destino, char* mensaje,char* mensajeError,int intentos,int 
     return retorno;
 }
 
-
-
-
+/** \brief
+ *
+ * \param
+ * \param
+ * \return
+ *
+ */
 
 int val_getUnsignedInt(char* destino, char* mensaje,char* mensajeError,int intentos,int limite)
 {
@@ -223,8 +272,13 @@ int val_getUnsignedInt(char* destino, char* mensaje,char* mensajeError,int inten
     return retorno;
 }
 
-
-
+/** \brief
+ *
+ * \param
+ * \param
+ * \return
+ *
+ */
 
 int val_validarUnsignedInt(char* buffer)
 {

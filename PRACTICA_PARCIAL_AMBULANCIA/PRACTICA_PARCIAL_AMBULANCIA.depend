@@ -1,16 +1,16 @@
 # depslib dependency file v1.0
-1506646084 source:d:\clasesprogramacion\prog-1-lab-1-recurs-master\practica_parcial_ambulancia\asociado.c
+1507158168 source:d:\clasesprogramacion\prog-1-lab-1-recurs-master\practica_parcial_ambulancia\asociado.c
 	<stdio.h>
 	<stdlib.h>
 	"asociado.h"
 	"validar.h"
 	<string.h>
 
-1506628448 d:\clasesprogramacion\prog-1-lab-1-recurs-master\practica_parcial_ambulancia\asociado.h
+1507149523 d:\clasesprogramacion\prog-1-lab-1-recurs-master\practica_parcial_ambulancia\asociado.h
 
-1506628448 d:\clasesprogramacion\prog-1-lab-1-recurs-master\practica_parcial_ambulancia\validar.h
+1507149523 d:\clasesprogramacion\prog-1-lab-1-recurs-master\practica_parcial_ambulancia\validar.h
 
-1506644940 source:d:\clasesprogramacion\prog-1-lab-1-recurs-master\practica_parcial_ambulancia\estadisticas.c
+1507149523 source:d:\clasesprogramacion\prog-1-lab-1-recurs-master\practica_parcial_ambulancia\estadisticas.c
 	<stdio.h>
 	<stdlib.h>
 	"llamada.h"
@@ -19,24 +19,24 @@
 	"estadisticas.h"
 	<string.h>
 
-1506640360 d:\clasesprogramacion\prog-1-lab-1-recurs-master\practica_parcial_ambulancia\llamada.h
+1507158416 d:\clasesprogramacion\prog-1-lab-1-recurs-master\practica_parcial_ambulancia\llamada.h
 
-1506640667 d:\clasesprogramacion\prog-1-lab-1-recurs-master\practica_parcial_ambulancia\estadisticas.h
+1507149523 d:\clasesprogramacion\prog-1-lab-1-recurs-master\practica_parcial_ambulancia\estadisticas.h
 
-1506648291 source:d:\clasesprogramacion\prog-1-lab-1-recurs-master\practica_parcial_ambulancia\llamada.c
+1507158388 source:d:\clasesprogramacion\prog-1-lab-1-recurs-master\practica_parcial_ambulancia\llamada.c
 	<stdio.h>
 	<stdlib.h>
 	"llamada.h"
 	"validar.h"
 	<string.h>
 
-1506628448 source:d:\clasesprogramacion\prog-1-lab-1-recurs-master\practica_parcial_ambulancia\validar.c
+1507149523 source:d:\clasesprogramacion\prog-1-lab-1-recurs-master\practica_parcial_ambulancia\validar.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"validar.h"
 
-1506640667 source:d:\clasesprogramacion\prog-1-lab-1-recurs-master\practica_parcial_ambulancia\main.c
+1507149523 source:d:\clasesprogramacion\prog-1-lab-1-recurs-master\practica_parcial_ambulancia\main.c
 	<stdio.h>
 	<stdlib.h>
 	"asociado.h"

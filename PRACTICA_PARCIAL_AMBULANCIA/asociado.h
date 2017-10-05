@@ -1,9 +1,6 @@
 #ifndef ASOCIADO_H_INCLUDED
 #define ASOCIADO_H_INCLUDED
 
-#define ESTADO_ASOCIADO_LIBRE 0
-#define ESTADO_ASOCIADO_OCUPADO 1
-
 typedef struct
 {
 	int id_asociado;
@@ -16,6 +13,8 @@ typedef struct
 
 #endif // ASOCIADO_H_INCLUDED
 
+#define ESTADO_ASOCIADO_LIBRE 0
+#define ESTADO_ASOCIADO_OCUPADO 1
 
 int asoc_editarAsociado (EAsociado* arrayAsociados, int len);
 int asoc_cargarAsociado (EAsociado* arrayAsociados, int index, int len);

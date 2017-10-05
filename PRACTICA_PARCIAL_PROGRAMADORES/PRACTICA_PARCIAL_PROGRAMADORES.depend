@@ -1,0 +1,55 @@
+# depslib dependency file v1.0
+1507232755 source:c:\users\daniela garat\documents\facultad\segundo cuatri\prog-1-lab-1-recurs-master\practica_parcial_programadores\categoria.c
+	<stdio.h>
+	<stdlib.h>
+	"validar.h"
+	"categoria.h"
+
+1507151544 c:\users\daniela garat\documents\facultad\segundo cuatri\prog-1-lab-1-recurs-master\practica_parcial_programadores\validar.h
+
+1507232755 c:\users\daniela garat\documents\facultad\segundo cuatri\prog-1-lab-1-recurs-master\practica_parcial_programadores\categoria.h
+
+1507232755 source:c:\users\daniela garat\documents\facultad\segundo cuatri\prog-1-lab-1-recurs-master\practica_parcial_programadores\proyecto.c
+	<stdio.h>
+	<stdlib.h>
+	"proyecto.h"
+	"validar.h"
+	<string.h>
+
+1507151544 source:c:\users\daniela garat\documents\facultad\segundo cuatri\prog-1-lab-1-recurs-master\practica_parcial_programadores\validar.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"validar.h"
+
+1507232828 source:c:\users\daniela garat\documents\facultad\segundo cuatri\prog-1-lab-1-recurs-master\practica_parcial_programadores\main.c
+	<stdio.h>
+	<stdlib.h>
+	"validar.h"
+	"categoria.h"
+	"programador.h"
+	"proyecto.h"
+	"compartida.h"
+
+1507232805 c:\users\daniela garat\documents\facultad\segundo cuatri\prog-1-lab-1-recurs-master\practica_parcial_programadores\programador.h
+
+1507232755 source:c:\users\daniela garat\documents\facultad\segundo cuatri\prog-1-lab-1-recurs-master\practica_parcial_programadores\programador.c
+	<stdio.h>
+	<stdlib.h>
+	"programador.h"
+	"validar.h"
+	<string.h>
+
+1507232755 c:\users\daniela garat\documents\facultad\segundo cuatri\prog-1-lab-1-recurs-master\practica_parcial_programadores\proyecto.h
+
+1507232816 source:c:\users\daniela garat\documents\facultad\segundo cuatri\prog-1-lab-1-recurs-master\practica_parcial_programadores\compartida.c
+	<stdio.h>
+	<stdlib.h>
+	"validar.h"
+	"categoria.h"
+	"programador.h"
+	"proyecto.h"
+	"compartida.h"
+
+1507232755 c:\users\daniela garat\documents\facultad\segundo cuatri\prog-1-lab-1-recurs-master\practica_parcial_programadores\compartida.h
+

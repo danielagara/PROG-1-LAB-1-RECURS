@@ -11,6 +11,14 @@ static int buscarIndicePantalla(EContratacion* arrayContrataciones, int longitud
 static int modificaContratacionPorIndice(EContratacion* arrayContrataciones, int index);
 //_________________________________________________________________
 
+/** \brief buscarProximoIdContratacion genera un id autoincrementable, y lo devuelve como retorno
+ *
+ * \param arrayContrataciones el array al que se le genera el id
+ * \param longitud lo que mide dicho array
+ * \return -1 si falla, el numero de id si no hubo problemas
+ *
+ */
+
 static int buscarProximoIdContratacion(EContratacion* arrayContrataciones, int longitud)
 {
     int i;
@@ -29,6 +37,16 @@ static int buscarProximoIdContratacion(EContratacion* arrayContrataciones, int l
     }
     return idMax + 1;
 }
+
+/** \brief buscarIndicePantalla buscara dentro del array el valor de id de pantalla pasado como parametro
+ *
+ * \param arrayContrataciones el array en el que se buscara dicho id
+ * \param longitud lo que mide dicho array
+ * \param cuitCliente el dato cuit del cliente al que le corresponde dicho id
+ * \param idPantalla el dato (id) a buscar dentro del array
+ * \return -1 en caso de no haberse encontrado, el valor del indice en caso de que si
+ *
+ */
 
 static int buscarIndicePantalla(EContratacion* arrayContrataciones, int longitud, char* cuitCliente, int idPantalla)
 {
@@ -52,6 +70,16 @@ static int buscarIndicePantalla(EContratacion* arrayContrataciones, int longitud
     }
     return retorno;
 }
+
+/** \brief cont_nuevaContratacion genera el alta de una nueva contratacion, es decir, pide al usuario y guarda los datos dentro del array
+ *
+ * \param arrayContrataciones el array donde se introduciran los datos
+ * \param index el indice del array donde se guardaran
+ * \param len la longitud del array
+ * \param idPantalla dato previo a validar antes de guardar
+ * \return -1 en caso de error, 0 en caso de que se ejecute correctamente
+ *
+ */
 
 int cont_nuevaContratacion(EContratacion* arrayContrataciones, int index, int len, int idPantalla)
 {
@@ -92,6 +120,14 @@ int cont_nuevaContratacion(EContratacion* arrayContrataciones, int index, int le
     return retorno;
 }
 
+/** \brief cont_buscarIndiceContratacionLibre busca el indice que no tenga guardado otros datos de otra contratacion
+ *
+ * \param arrayContrataciones el array donde se realizara la busqueda
+ * \param longitud lo que mide el array
+ * \return -1 en caso de error, el numero del indice en caso de que se encuentre
+ *
+ */
+
 int cont_buscarIndiceContratacionLibre(EContratacion* arrayContrataciones, int longitud)
 {
     int retorno = -1;
@@ -111,6 +147,14 @@ int cont_buscarIndiceContratacionLibre(EContratacion* arrayContrataciones, int l
     return retorno;
 }
 
+/** \brief cont_initProductos inicializa todos los indices del array como espacios disponibles a ocupar
+ *
+ * \param arrayContrataciones el array a inicializar
+ * \param longitud lo que mide el array
+ * \return -1 en caso de error, 0 en caso de ejecucion correcta
+ *
+ */
+
 int cont_initProductos(EContratacion* arrayContrataciones, int longitud)
 {
     int retorno = -1;
@@ -120,17 +164,27 @@ int cont_initProductos(EContratacion* arrayContrataciones, int longitud)
         for(i=0; i<longitud ; i++)
         {
             arrayContrataciones[i].flagDeEstado = ESTADO_CONTRATACION_LIBRE;
+            retorno=0;
         }
 
     }
     return retorno;
 }
 
+/** \brief cont_editarContratacion pedira el id de la pantalla a modificar, y validara que exista
+ *
+ * \param arrayContrataciones el array donde se buscara el dato
+ * \param len lo que mide el array
+ * \return redirige a otra funcion que modificara los datos, 0 si no se ejecuto correctamente
+ *
+ */
+
 int cont_editarContratacion(EContratacion* arrayContrataciones,int len)
 {
     char bCUITdelCliente[51];
     int index;
 	char bidPantalla[51];
+
     if(val_getInt(bidPantalla,"INGRESE EL ID DE LA PANTALLA A MODIFICAR:\t","INCORRECTO",2,51)==0)
     {
         index = buscarIndicePantalla(arrayContrataciones,len,bCUITdelCliente,atoi(bidPantalla));
@@ -143,6 +197,13 @@ int cont_editarContratacion(EContratacion* arrayContrataciones,int len)
     return 0;
 }
 
+/** \brief modificaContratacionPorIndice pedira y modificara los datos de una contratacion
+ *
+ * \param arrayContrataciones
+ * \param index el indice donde se encuentra la contratacion a modificar
+ * \return 0 si fue correctamente modificado, -1 si hubo algun error;
+ *
+ */
 
 static int modificaContratacionPorIndice(EContratacion* arrayContrataciones, int index)
 {
@@ -160,6 +221,13 @@ static int modificaContratacionPorIndice(EContratacion* arrayContrataciones, int
     return retorno;
 }
 
+/** \brief cont_cancelarContratacion da de baja una contratacion
+ *
+ * \param arrayContrataciones el array donde se dara de baja el item
+ * \param len la longitud del array
+ * \return -1 en caso de error, 0 si fue correctamente ejecutado
+ *
+ */
 
 int cont_cancelarContratacion(EContratacion* arrayContrataciones,int len)
 {

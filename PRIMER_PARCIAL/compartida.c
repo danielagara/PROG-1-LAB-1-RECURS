@@ -5,6 +5,15 @@
 #include "validar.h"
 #include <string.h>
 
+/** \brief pant_printPorIdPantalla printea los elementos de una pantalla, filtrando por idPantalla
+ *
+ * \param arrayPantallas el array donde se buscara el idPantalla, y se imprimira
+ * \param longitud lo que mide
+ * \param idPantalla dato que determina que pantalla se va a imprimir
+ * \return -1 en caso de error, 0 en caso de ejecucion exitosa
+ *
+ */
+
 int pant_printPorIdPantalla(EPantalla* arrayPantallas, int longitud, int idPantalla)
 {
     int retorno = -1;
@@ -32,6 +41,16 @@ int pant_printPorIdPantalla(EPantalla* arrayPantallas, int longitud, int idPanta
     }
     return retorno;
 }
+
+/** \brief listaPantallasCliente busca al cliente, y llama a pant_printPorIdPantalla para imprimir todas las pantallas que este utiliza
+ *
+ * \param arrayContrataciones el array que contiene los datos del cliente donde se buscara de a uno estos mismos
+ * \param longitudContrataciones lo que mide el array de contrataciones
+ * \param arrayPantallas el array de pantallas que contiene los datos a imprimir
+ * \param longitudPantallas lo que mide el array de pantallas
+ * \return
+ *
+ */
 
 void listaPantallasCliente(EContratacion* arrayContrataciones, int longitudContrataciones,EPantalla* arrayPantallas, int longitudPantallas)
 {

@@ -43,3 +43,47 @@
 
 1507249669 d:\primer_parcial\primer_parcial\compartida.h
 
+1507590310 source:d:\prog-1-lab-1-recurs-master\primer_parcial\compartida.c
+	<stdio.h>
+	<stdlib.h>
+	"contratacion.h"
+	"pantalla.h"
+	"validar.h"
+	<string.h>
+
+1507250614 d:\prog-1-lab-1-recurs-master\primer_parcial\contratacion.h
+
+1507250614 d:\prog-1-lab-1-recurs-master\primer_parcial\pantalla.h
+
+1507250614 d:\prog-1-lab-1-recurs-master\primer_parcial\validar.h
+
+1507250614 source:d:\prog-1-lab-1-recurs-master\primer_parcial\main.c
+	<stdio.h>
+	<stdlib.h>
+	"pantalla.h"
+	"contratacion.h"
+	"compartida.h"
+	"validar.h"
+
+1507250614 d:\prog-1-lab-1-recurs-master\primer_parcial\compartida.h
+
+1507591931 source:d:\prog-1-lab-1-recurs-master\primer_parcial\pantalla.c
+	<stdio.h>
+	<stdlib.h>
+	"pantalla.h"
+	"validar.h"
+	"string.h"
+
+1507250614 source:d:\prog-1-lab-1-recurs-master\primer_parcial\validar.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"validar.h"
+
+1507589573 source:d:\prog-1-lab-1-recurs-master\primer_parcial\contratacion.c
+	<stdio.h>
+	<stdlib.h>
+	"contratacion.h"
+	"validar.h"
+	<string.h>
+

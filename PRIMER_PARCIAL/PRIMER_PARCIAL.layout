@@ -2,14 +2,60 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="contratacion.c" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="contratacion.c" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="5029" topLine="168" />
+			<Cursor1 position="6619" topLine="0" />
+		</Cursor>
+		<Folding>
+			<Collapse line="22" />
+			<Collapse line="51" />
+			<Collapse line="84" />
+			<Collapse line="131" />
+			<Collapse line="158" />
+			<Collapse line="182" />
+			<Collapse line="208" />
+			<Collapse line="232" />
+		</Folding>
+	</File>
+	<File name="compartida.c" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1843" topLine="18" />
+		</Cursor>
+		<Folding>
+			<Collapse line="17" />
+			<Collapse line="55" />
+		</Folding>
+	</File>
+	<File name="pantalla.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="9924" topLine="0" />
+		</Cursor>
+		<Folding>
+			<Collapse line="22" />
+			<Collapse line="47" />
+			<Collapse line="96" />
+			<Collapse line="152" />
+			<Collapse line="176" />
+			<Collapse line="212" />
+			<Collapse line="239" />
+			<Collapse line="267" />
+			<Collapse line="298" />
+			<Collapse line="327" />
+		</Folding>
+	</File>
+	<File name="contratacion.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="753" topLine="2" />
 		</Cursor>
 	</File>
-	<File name="compartida.c" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="pantalla.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1067" topLine="0" />
+			<Cursor1 position="241" topLine="3" />
+		</Cursor>
+	</File>
+	<File name="main.c" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2019" topLine="10" />
 		</Cursor>
 	</File>
 	<File name="validar.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -19,22 +65,18 @@
 	</File>
 	<File name="validar.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="5881" topLine="275" />
+			<Cursor1 position="9408" topLine="133" />
 		</Cursor>
-	</File>
-	<File name="main.c" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2019" topLine="10" />
-		</Cursor>
-	</File>
-	<File name="pantalla.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="241" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="contratacion.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="753" topLine="2" />
-		</Cursor>
+		<Folding>
+			<Collapse line="17" />
+			<Collapse line="44" />
+			<Collapse line="89" />
+			<Collapse line="125" />
+			<Collapse line="148" />
+			<Collapse line="216" />
+			<Collapse line="256" />
+			<Collapse line="296" />
+			<Collapse line="365" />
+		</Folding>
 	</File>
 </CodeBlocks_layout_file>

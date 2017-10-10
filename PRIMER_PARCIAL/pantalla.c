@@ -11,6 +11,13 @@ static int buscarIndiceId (EPantalla* arrayPantallas, int longitud, int id);
 static int modificarPantallaPorIndice(EPantalla* arrayPantallas, int index);
 //___________________
 
+/** \brief pant_editarPantalla pedira el id de la pantalla a modificar, y validara que exista
+ *
+ * \param arrayPantallas el array donde se buscara el dato
+ * \param len lo que mide el array
+ * \return redirige a otra funcion que modificara los datos, 0 si no se ejecuto correctamente
+ *
+ */
 
 int pant_editarPantalla(EPantalla* arrayPantallas,int len)
 {
@@ -29,6 +36,13 @@ int pant_editarPantalla(EPantalla* arrayPantallas,int len)
     return -1;
 }
 
+/** \brief modificarPantallaPorIndice pedira y modificara los datos de una pantalla
+ *
+ * \param arrayPantallas array a modificar el dato
+ * \param indice donde se encuentra dentro del array el dato a modificar
+ * \return -1 si se ejecuto incorrectamente, 0 si se pudo modificar
+ *
+ */
 
 static int modificarPantallaPorIndice (EPantalla* arrayPantallas, int index)
 {
@@ -69,6 +83,15 @@ static int modificarPantallaPorIndice (EPantalla* arrayPantallas, int index)
     }
     return retorno;
 }
+
+/** \brief pant_cargarPantalla pide y carga los datos de una pantalla dentro del array
+ *
+ * \param arrayPantallas el array donde se guardaran los datos
+ * \param index el indice del array donde estaran esos datos especificamente
+ * \param len lo que mide el array
+ * \return -1 si no se pudo ejecutar correctamente, 0 si no hubo problemas
+ *
+ */
 
 int pant_cargarPantalla(EPantalla* arrayPantallas, int index, int len)
 {
@@ -118,6 +141,14 @@ int pant_cargarPantalla(EPantalla* arrayPantallas, int index, int len)
     return retorno;
 }
 
+/** \brief pant_initPantalla inicializa todos los indices del array como disponibles a ser ocupados
+ *
+ * \param arrayPantallas el array a inicializar
+ * \param longitud lo que mide dicho array
+ * \return -1 si hubo error, 0 si no
+ *
+ */
+
 int pant_initPantalla(EPantalla* arrayPantallas, int longitud)
 {
     int retorno = -1;
@@ -127,11 +158,20 @@ int pant_initPantalla(EPantalla* arrayPantallas, int longitud)
         for(i=0; i<longitud ; i++)
         {
             arrayPantallas[i].flagDeEstado = ESTADO_PANTALLA_LIBRE;
+            retorno=0;
         }
 
     }
     return retorno;
 }
+
+/** \brief pant_printPantalla imprime todas las pantallas que esten habilitadas
+ *
+ * \param arrayPantallas el array donde se encuentran los datos de las pantallas a imprimir
+ * \param longitud lo que mide el array
+ * \return -1 si hubo algun error, 0 si la ejecucion fue correcta
+ *
+ */
 
 int pant_printPantalla(EPantalla* arrayPantallas, int longitud)
 {
@@ -161,6 +201,13 @@ int pant_printPantalla(EPantalla* arrayPantallas, int longitud)
     return retorno;
 }
 
+/** \brief pant_buscarIndicePantallaLibre busca un indice dentro del array que no este ocupado con datos
+ *
+ * \param arrayPantallas el array donde se buscara dicho indice
+ * \param longitud lo que mide dicho array
+ * \return -1 si hubo algun error, el numero del indice si se encontro
+ *
+ */
 
 int pant_buscarIndicePantallaLibre (EPantalla* arrayPantallas, int longitud)
 {
@@ -181,6 +228,13 @@ int pant_buscarIndicePantallaLibre (EPantalla* arrayPantallas, int longitud)
     return retorno;
 }
 
+/** \brief buscarProximoId generara y devolvera un id autoincremental
+ *
+ * \param arrayPantallas el array donde se buscara y generara un id
+ * \param longitud lo que mide dicho array
+ * \return -1 en caso de error, el valor del id en caso de estar correctamente
+ *
+ */
 
 static int buscarProximoId(EPantalla* arrayPantallas, int longitud)
 {
@@ -201,6 +255,14 @@ static int buscarProximoId(EPantalla* arrayPantallas, int longitud)
     return idMax + 1;
 }
 
+/** \brief buscarIndiceId busca dentro del array el indice donde se encuentra el id pasado
+ *
+ * \param arrayPantallas el array donde se hara la busqueda
+ * \param longitud lo que mide el array
+ * \param id el id a buscar dentro del array
+ * \return -1 en caso de error, el valor del indice en caso de encontrarlo
+ *
+ */
 
 static int buscarIndiceId(EPantalla* arrayPantallas, int longitud, int id)
 {
@@ -225,6 +287,13 @@ static int buscarIndiceId(EPantalla* arrayPantallas, int longitud, int id)
     return retorno;
 }
 
+/** \brief pant_bajarPantalla da de baja una pantalla que se encuentra cargada en el array
+ *
+ * \param arrayPantallas el array donde esta dicha pantalla
+ * \param len la longitud del array
+ * \return -1 en caso de error, 0 en caso de que se ejecute correctamente
+ *
+ */
 
 int pant_bajarPantalla(EPantalla* arrayPantallas,int len)
 {
@@ -247,6 +316,13 @@ int pant_bajarPantalla(EPantalla* arrayPantallas,int len)
     return retorno;
 }
 
+/** \brief pant_pideId pide al usuario el dato del id y valida que este exista y ya este dado de alta en el array
+ *
+ * \param arrayPantallas el array donde se buscara el pasado
+ * \param len la longitud del array
+ * \return -1 si hubo errores, 0 si se ejecuto correctamente
+ *
+ */
 
 int pant_pideId(EPantalla* arrayPantallas,int len)
 {

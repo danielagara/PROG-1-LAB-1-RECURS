@@ -5,7 +5,7 @@
 #include "validar.h"
 #include <string.h>
 
-/** \brief listaPantallasCliente busca al cliente, y llama a pant_printPorIdPantalla para imprimir todas las pantallas que este utiliza
+/** \brief comp_listaPantallasCliente busca al cliente, y llama a pant_printPorIdPantalla para imprimir todas las pantallas que este utiliza
  *
  * \param arrayContrataciones el array que contiene los datos del cliente donde se buscara de a uno estos mismos
  * \param longitudContrataciones lo que mide el array de contrataciones
@@ -32,11 +32,13 @@ void comp_listaPantallasCliente(EContratacion* arrayContrataciones, int longitud
 	}
 }
 
-/** \brief
+/** \brief comp_consultaFacturacion pide al usuario que ingrese el cuit, y calcula la facturacion de cada contratacion que este tiene
  *
- * \param
- * \param
- * \return
+ * \param arrayContrataciones el array donde se encontraran las contrataciones y datos del cliente
+ * \param lenContrataciones longitud del array
+ * \param arrayPantallas el array donde se buscara la informacion sobre las pantallas de cada contratacion
+ * \param lenPantallas longitud del array
+ * \return -1 en caso de error, 0 en caso de que sea correcto
  *
  */
 
@@ -69,12 +71,13 @@ int comp_consultaFacturacion(EContratacion* arrayContrataciones, int lenContrata
 	return retorno;
 }
 
-
-/** \brief
+/** \brief comp_listaContrataciones lista todas las contrataciones realizadas
  *
- * \param
- * \param
- * \return
+ * \param arrayContrataciones array que contiene la informacion de cada contratacion
+ * \param lenContrataciones longitud del array
+ * \param arrayPantallas el array donde se buscara la informacion sobre las pantallas de cada contratacion
+ * \param lenPantallas longitud del array
+ * \return VOID
  *
  */
 
@@ -97,11 +100,13 @@ void comp_listaContrataciones(EContratacion* arrayContrataciones, int lenContrat
 }
 
 
-/** \brief
+/** \brief comp_listaInfoClientes imprime por cliente la cantidad de contrataciones y el total a pagar por cada una
  *
- * \param
- * \param
- * \return
+ * \param arrayContrataciones array que contiene la informacion de cada contratacion
+ * \param lenContrataciones longitud del array
+ * \param arrayPantallas el array donde se buscara la informacion sobre las pantallas de cada contratacion
+ * \param lenPantallas longitud del array
+ * \return -1 si hubo error, 0 si funciono todo OK
  *
  */
 
@@ -138,11 +143,14 @@ int comp_listaInfoClientes(EContratacion* arrayContrataciones, int lenContrataci
 }
 
 
-/** \brief
+/** \brief comp_sumaFacturaciones suma todas las facturaciones que tiene un cliente de todas sus contrataciones
  *
- * \param
- * \param
- * \return
+ * \param arrayContrataciones array que contiene la informacion de cada contratacion
+ * \param lenContrataciones longitud del array
+ * \param arrayPantallas el array donde se buscara la informacion sobre las pantallas de cada contratacion
+ * \param lenPantallas longitud del array
+ * \param CUIT el cuit del cliente
+ * \return -1 si hubo error, el valor de la suma si fue correcto
  *
  */
 
@@ -171,22 +179,22 @@ float comp_sumaFacturaciones(EContratacion* arrayContrataciones, int lenContrata
     return retorno;
 }
 
-
-
-/** \brief
+/** \brief comp_clienteMaxFacturacion calcula cual es el cliente que tiene el maximo importe a pagar
  *
- * \param
- * \param
- * \return
+ * \param arrayContrataciones array que contiene la informacion de cada contratacion
+ * \param lenContrataciones longitud del array
+ * \param arrayPantallas el array donde se buscara la informacion sobre las pantallas de cada contratacion
+ * \param lenPantallas longitud del array
+ * \return -1 si fue incorrecta la ejecucion, 0 si no lo fue
  *
  */
 int comp_clienteMaxFacturacion(EContratacion* arrayContrataciones, int lenContrataciones, EPantalla* arrayPantallas, int lenPantallas)
 {
+    int retorno=-1;
     int i;
     float maxFacturacion=0;
     char CUITClienteMAX[51];
     float cantidadAUX=0;
-    char bCuitCliente[51];
 
         for(i=0;i<lenContrataciones;i++)
         {
@@ -197,6 +205,7 @@ int comp_clienteMaxFacturacion(EContratacion* arrayContrataciones, int lenContra
                 {
                     maxFacturacion=cantidadAUX;
                     strncpy(CUITClienteMAX,arrayContrataciones[i].cuitCliente,51);
+                    retorno=0;
                 }
             }
         }
@@ -204,6 +213,6 @@ int comp_clienteMaxFacturacion(EContratacion* arrayContrataciones, int lenContra
 
     printf("EL CLIENTE CON MAYOR FACTURACION ES %s, Y EL IMPORTE ES DE : $ %.2f  \n", CUITClienteMAX, maxFacturacion);
 
-    return 0;
+    return retorno;
 }
 

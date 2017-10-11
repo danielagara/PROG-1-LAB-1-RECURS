@@ -383,11 +383,12 @@ int pant_printPorIdPantalla(EPantalla* arrayPantallas, int longitud, int idPanta
     return retorno;
 }
 
-/** \brief
+/** \brief pant_devuelvePrecioPublicacion busca el precio de la publicacion que tiene la pantalla de la que se le paso el id
  *
- * \param
- * \param
- * \return
+ * \param arrayPantallas el array con la informacion de las pantallas
+ * \param lenPantallas la longitud del array
+ * \param idPantalla el id de la pantalla a buscar su precio
+ * \return -1 si hubo algun error, el valor del precio si no hubo errores
  *
  */
 
@@ -411,17 +412,17 @@ float pant_devuelvePrecioPublicacion(EPantalla* arrayPantallas, int lenPantallas
 }
 
 
-/** \brief
+/** \brief pant_printNombrePantalla imprime el nombre de la pantalla del id que se le paso
  *
- * \param
- * \param
- * \return
+ * \param arrayPantallas el array con la informacion de las pantallas
+ * \param lenPantallas la longitud del array
+ * \param idPantalla el id de la pantalla a buscar su precio
+ * \return VOID
  *
  */
 
- int pant_printNombrePantalla(EPantalla* arrayPantallas, int longitud, int idPantalla)
+ void pant_printNombrePantalla(EPantalla* arrayPantallas, int longitud, int idPantalla)
 {
-    int retorno = -1;
     int i;
 
     if(arrayPantallas != NULL && longitud > 0)
@@ -436,5 +437,4 @@ float pant_devuelvePrecioPublicacion(EPantalla* arrayPantallas, int lenPantallas
         }
 
     }
-    return retorno;
 }

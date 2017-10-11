@@ -255,11 +255,12 @@ int cont_cancelarContratacion(EContratacion* arrayContrataciones,int len)
 }
 
 
-/** \brief
+/** \brief cont_cuentaContrataciones cuenta la cantidad de contrataciones que tiene un cliente
  *
- * \param
- * \param
- * \return
+ * \param arrayContrataciones el array con la informacion sobre cada contratacion
+ * \param len la longitud del array
+ * \param CUITCliente el cuit de cada cliente a contar contrataciones
+ * \return -1 si hubo algun error, el valor de la cantidad de contrataciones si no hubo errores
  *
  */
 

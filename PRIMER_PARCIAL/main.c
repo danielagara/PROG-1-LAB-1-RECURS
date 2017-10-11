@@ -35,15 +35,28 @@ int main()
                 cont_nuevaContratacion(arrayContrataciones,cont_buscarIndiceContratacionLibre(arrayContrataciones,TAM_CONTRATACIONES),TAM_CONTRATACIONES,pant_pideId(arrayPantallas,TAM_PANTALLAS));
                 break;
             case 5:
-                listaPantallasCliente(arrayContrataciones, TAM_CONTRATACIONES,arrayPantallas, TAM_PANTALLAS);
+                comp_listaPantallasCliente(arrayContrataciones, TAM_CONTRATACIONES,arrayPantallas, TAM_PANTALLAS);
                 cont_editarContratacion(arrayContrataciones,TAM_CONTRATACIONES);
                 break;
             case 6:
-                listaPantallasCliente(arrayContrataciones, TAM_CONTRATACIONES,arrayPantallas, TAM_PANTALLAS);
+                comp_listaPantallasCliente(arrayContrataciones, TAM_CONTRATACIONES,arrayPantallas, TAM_PANTALLAS);
                 cont_cancelarContratacion(arrayContrataciones,TAM_CONTRATACIONES);
+                break;
+            case 7:
+                comp_consultaFacturacion(arrayContrataciones,TAM_CONTRATACIONES, arrayPantallas, TAM_PANTALLAS);
+                break;
+            case 8:
+                comp_listaContrataciones(arrayContrataciones,TAM_CONTRATACIONES,arrayPantallas,TAM_PANTALLAS);
                 break;
             case 9:
                 pant_printPantalla(arrayPantallas,TAM_PANTALLAS);
+                break;
+            case 10:
+                printf("1- Lista de cada cliente con cantidad de contrataciones e importe a pagar por cada una\n");
+                comp_listaInfoClientes(arrayContrataciones,TAM_CONTRATACIONES,arrayPantallas,TAM_PANTALLAS);
+
+                printf("2- Cliente con importe más alto a facturar\n");
+                comp_clienteMaxFacturacion(arrayContrataciones,TAM_CONTRATACIONES,arrayPantallas,TAM_PANTALLAS);
                 break;
         }
 

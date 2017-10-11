@@ -5,43 +5,6 @@
 #include "validar.h"
 #include <string.h>
 
-/** \brief pant_printPorIdPantalla printea los elementos de una pantalla, filtrando por idPantalla
- *
- * \param arrayPantallas el array donde se buscara el idPantalla, y se imprimira
- * \param longitud lo que mide
- * \param idPantalla dato que determina que pantalla se va a imprimir
- * \return -1 en caso de error, 0 en caso de ejecucion exitosa
- *
- */
-
-int pant_printPorIdPantalla(EPantalla* arrayPantallas, int longitud, int idPantalla)
-{
-    int retorno = -1;
-    int i;
-	char auxTipoPantalla[51];
-    if(arrayPantallas != NULL && longitud > 0)
-    {
-        for(i=0; i<longitud ; i++)
-        {
-            if(arrayPantallas[i].flagDeEstado == ESTADO_PANTALLA_OCUPADA && idPantalla == arrayPantallas[i].idPantalla)
-            {
-				if(arrayPantallas[i].tipoPantalla==1)
-				{
-					strncpy(auxTipoPantalla,"LCD",51);
-				}
-				else
-				{
-					strncpy(auxTipoPantalla,"LED",51);
-				}
-
-                printf("ID: %d - NOMBRE DE LA PANTALLA: %s - DIRECCION DE LA PANTALLA: %s - TIPO DE LA PANTALLA: %s - PRECIO DE LA PUBLICACION POR DIA: %.2f \n",arrayPantallas[i].idPantalla,arrayPantallas[i].nombrePantalla,arrayPantallas[i].direccionPantalla,auxTipoPantalla, arrayPantallas[i].precioPublicacionXdia);
-            }
-        }
-
-    }
-    return retorno;
-}
-
 /** \brief listaPantallasCliente busca al cliente, y llama a pant_printPorIdPantalla para imprimir todas las pantallas que este utiliza
  *
  * \param arrayContrataciones el array que contiene los datos del cliente donde se buscara de a uno estos mismos
@@ -52,7 +15,7 @@ int pant_printPorIdPantalla(EPantalla* arrayPantallas, int longitud, int idPanta
  *
  */
 
-void listaPantallasCliente(EContratacion* arrayContrataciones, int longitudContrataciones,EPantalla* arrayPantallas, int longitudPantallas)
+void comp_listaPantallasCliente(EContratacion* arrayContrataciones, int longitudContrataciones,EPantalla* arrayPantallas, int longitudPantallas)
 {
     char bCuitCliente[51];
     int j;
@@ -69,15 +32,178 @@ void listaPantallasCliente(EContratacion* arrayContrataciones, int longitudContr
 	}
 }
 
+/** \brief
+ *
+ * \param
+ * \param
+ * \return
+ *
+ */
 
-/*
-void listaContrataciones(EContratacion* arrayContrataciones, int lenContrataciones, EPantalla* arrayPantallas)
+int comp_consultaFacturacion(EContratacion* arrayContrataciones, int lenContrataciones, EPantalla* arrayPantallas, int lenPantallas)
+{
+    int retorno=-1;
+    int i;
+    float AUXPrecioPublicacionXdia;
+    float facturacionTotal;
+    char bCuitCliente[51];
+    if(val_getInt(bCuitCliente,"\nINGRESE SU CUIT\t","\nError:\n",3,51)==0)
+    {
+		for(i=0;i<lenContrataciones;i++)
+		{
+			if(stricmp(bCuitCliente,arrayContrataciones[i].cuitCliente)==0 && arrayContrataciones[i].flagDeEstado==ESTADO_CONTRATACION_OCUPADA)
+			{
+				AUXPrecioPublicacionXdia=pant_devuelvePrecioPublicacion(arrayPantallas,lenPantallas,arrayContrataciones[i].idPantalla);
+				if(AUXPrecioPublicacionXdia!=-1)
+                {
+                    facturacionTotal=arrayContrataciones[i].diasQueDuraPublicacion*AUXPrecioPublicacionXdia;
+                    printf("LA FACTURACION TOTAL POR LA PANTALLA %d ES DE %.2f\n", arrayContrataciones[i].idPantalla, facturacionTotal);
+                    retorno=0;
+                }
+
+			}
+		}
+
+	}
+
+	return retorno;
+}
+
+
+/** \brief
+ *
+ * \param
+ * \param
+ * \return
+ *
+ */
+
+void comp_listaContrataciones(EContratacion* arrayContrataciones, int lenContrataciones, EPantalla* arrayPantallas, int lenPantallas)
 {
     int i;
-    for(i=0;i<lenContrataciones;i++)
+
+    if(arrayContrataciones != NULL && lenContrataciones > 0 && arrayPantallas != NULL && lenPantallas > 0)
     {
-        for(j=0;j<lenContrataciones;j++)
+        for(i=0;i<lenContrataciones;i++)
+        {
+            if(arrayContrataciones[i].flagDeEstado==ESTADO_CONTRATACION_OCUPADA)
+            {
+                pant_printNombrePantalla(arrayPantallas,lenPantallas,arrayContrataciones[i].idPantalla);
+                printf("CUIT DEL CLIENTE: %s\nNOMBRE DEL ARCHIVO DE VIDEO: %s\nCANTIDAD DE DIAS QUE DURA LA PUBLICACION: %d\n", arrayContrataciones[i].cuitCliente, arrayContrataciones[i].nombreArchivoDelVideo, arrayContrataciones[i].diasQueDuraPublicacion);
+            }
+        }
 
     }
 }
-*/
+
+
+/** \brief
+ *
+ * \param
+ * \param
+ * \return
+ *
+ */
+
+int comp_listaInfoClientes(EContratacion* arrayContrataciones, int lenContrataciones, EPantalla* arrayPantallas, int lenPantallas)
+{
+    int retorno=-1;
+    int i;
+    float AUXPrecioPublicacionXdia;
+    float facturacionTotal;
+    int cantidadContrataciones=0;
+
+
+    if(arrayContrataciones != NULL && lenContrataciones > 0 && arrayPantallas != NULL && lenPantallas > 0)
+    {
+            for(i=0;i<lenContrataciones;i++)
+            {
+                if(arrayContrataciones[i].flagDeEstado==ESTADO_CONTRATACION_OCUPADA)
+                {
+                    cantidadContrataciones=cont_cuentaContrataciones(arrayContrataciones,lenContrataciones,arrayContrataciones[i].cuitCliente);
+                    printf("CANTIDAD DE CONTRATACIONES: %d\n", cantidadContrataciones);
+                    AUXPrecioPublicacionXdia=pant_devuelvePrecioPublicacion(arrayPantallas,lenPantallas,arrayContrataciones[i].idPantalla);
+                    if(AUXPrecioPublicacionXdia!=-1)
+                    {
+                        facturacionTotal=arrayContrataciones[i].diasQueDuraPublicacion*AUXPrecioPublicacionXdia;
+                        printf("LA FACTURACION TOTAL POR LA PANTALLA %d ES DE %.2f\n", arrayContrataciones[i].idPantalla, facturacionTotal);
+                        retorno=0;
+                    }
+                }
+
+            }
+    }
+
+    return retorno;
+}
+
+
+/** \brief
+ *
+ * \param
+ * \param
+ * \return
+ *
+ */
+
+float comp_sumaFacturaciones(EContratacion* arrayContrataciones, int lenContrataciones, EPantalla* arrayPantallas, int lenPantallas, char* CUIT)
+{
+    float retorno=-1;
+    int i;
+    float AUXPrecioPublicacionXdia;
+    float facturacion=0;
+    float facturacionTotal=0;
+
+    for(i=0;i<lenContrataciones;i++)
+    {
+        if(stricmp(CUIT,arrayContrataciones[i].cuitCliente)==0 && arrayContrataciones[i].flagDeEstado==ESTADO_CONTRATACION_OCUPADA)
+        {
+            AUXPrecioPublicacionXdia=pant_devuelvePrecioPublicacion(arrayPantallas,lenPantallas,arrayContrataciones[i].idPantalla);
+            if(AUXPrecioPublicacionXdia!=-1)
+            {
+                facturacion=arrayContrataciones[i].diasQueDuraPublicacion*AUXPrecioPublicacionXdia;
+                facturacionTotal=facturacionTotal+facturacion;
+                retorno=facturacionTotal;
+            }
+        }
+    }
+
+    return retorno;
+}
+
+
+
+/** \brief
+ *
+ * \param
+ * \param
+ * \return
+ *
+ */
+int comp_clienteMaxFacturacion(EContratacion* arrayContrataciones, int lenContrataciones, EPantalla* arrayPantallas, int lenPantallas)
+{
+    int i;
+    float maxFacturacion=0;
+    char CUITClienteMAX[51];
+    float cantidadAUX=0;
+    char bCuitCliente[51];
+
+        for(i=0;i<lenContrataciones;i++)
+        {
+            if(arrayContrataciones[i].flagDeEstado==ESTADO_CONTRATACION_OCUPADA)
+            {
+                cantidadAUX=comp_sumaFacturaciones(arrayContrataciones, lenContrataciones,arrayPantallas,lenPantallas,arrayContrataciones[i].cuitCliente);
+                if(cantidadAUX>maxFacturacion)
+                {
+                    maxFacturacion=cantidadAUX;
+                    strncpy(CUITClienteMAX,arrayContrataciones[i].cuitCliente,51);
+                }
+            }
+        }
+
+
+    printf("EL CLIENTE CON MAYOR FACTURACION ES %s, Y EL IMPORTE ES DE : $ %.2f  \n", CUITClienteMAX, maxFacturacion);
+
+    return 0;
+}
+

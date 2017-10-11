@@ -345,3 +345,96 @@ int pant_pideId(EPantalla* arrayPantallas,int len)
     }
     return retorno;
 }
+
+/** \brief pant_printPorIdPantalla printea los elementos de una pantalla, filtrando por idPantalla
+ *
+ * \param arrayPantallas el array donde se buscara el idPantalla, y se imprimira
+ * \param longitud lo que mide
+ * \param idPantalla dato que determina que pantalla se va a imprimir
+ * \return -1 en caso de error, 0 en caso de ejecucion exitosa
+ *
+ */
+
+int pant_printPorIdPantalla(EPantalla* arrayPantallas, int longitud, int idPantalla)
+{
+    int retorno = -1;
+    int i;
+	char auxTipoPantalla[51];
+    if(arrayPantallas != NULL && longitud > 0)
+    {
+        for(i=0; i<longitud ; i++)
+        {
+            if(arrayPantallas[i].flagDeEstado == ESTADO_PANTALLA_OCUPADA && idPantalla == arrayPantallas[i].idPantalla)
+            {
+				if(arrayPantallas[i].tipoPantalla==1)
+				{
+					strncpy(auxTipoPantalla,"LCD",51);
+				}
+				else
+				{
+					strncpy(auxTipoPantalla,"LED",51);
+				}
+
+                printf("ID: %d - NOMBRE DE LA PANTALLA: %s - DIRECCION DE LA PANTALLA: %s - TIPO DE LA PANTALLA: %s - PRECIO DE LA PUBLICACION POR DIA: %.2f \n",arrayPantallas[i].idPantalla,arrayPantallas[i].nombrePantalla,arrayPantallas[i].direccionPantalla,auxTipoPantalla, arrayPantallas[i].precioPublicacionXdia);
+            }
+        }
+
+    }
+    return retorno;
+}
+
+/** \brief
+ *
+ * \param
+ * \param
+ * \return
+ *
+ */
+
+float pant_devuelvePrecioPublicacion(EPantalla* arrayPantallas, int lenPantallas, int idPantalla)
+{
+    float retorno=-1;
+    int i;
+
+    if(arrayPantallas != NULL && lenPantallas > 0)
+    {
+        for(i=0;i<lenPantallas;i++)
+        {
+            if(arrayPantallas[i].flagDeEstado == ESTADO_PANTALLA_OCUPADA && idPantalla == arrayPantallas[i].idPantalla)
+            {
+                retorno=arrayPantallas[i].precioPublicacionXdia;
+            }
+        }
+    }
+
+    return retorno;
+}
+
+
+/** \brief
+ *
+ * \param
+ * \param
+ * \return
+ *
+ */
+
+ int pant_printNombrePantalla(EPantalla* arrayPantallas, int longitud, int idPantalla)
+{
+    int retorno = -1;
+    int i;
+
+    if(arrayPantallas != NULL && longitud > 0)
+    {
+        for(i=0; i<longitud ; i++)
+        {
+            if(arrayPantallas[i].flagDeEstado == ESTADO_PANTALLA_OCUPADA && idPantalla == arrayPantallas[i].idPantalla)
+            {
+
+                printf("NOMBRE DE LA PANTALLA: %s\n",arrayPantallas[i].nombrePantalla);
+            }
+        }
+
+    }
+    return retorno;
+}

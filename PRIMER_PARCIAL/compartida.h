@@ -1,6 +1,10 @@
 #ifndef COMPARTIDA_H_INCLUDED
 #define COMPARTIDA_H_INCLUDED
 
-void listaPantallasCliente(EContratacion* arrayContrataciones, int longitudContrataciones,EPantalla* arrayPantallas, int longitudPantallas);
-int pant_printPorIdPantalla(EPantalla* arrayPantallas, int longitud, int idPantalla);
+void comp_listaPantallasCliente(EContratacion* arrayContrataciones, int longitudContrataciones,EPantalla* arrayPantallas, int longitudPantallas);
+int comp_consultaFacturacion(EContratacion* arrayContrataciones, int lenContrataciones, EPantalla* arrayPantallas, int lenPantallas);
+void comp_listaContrataciones(EContratacion* arrayContrataciones, int lenContrataciones, EPantalla* arrayPantallas, int lenPantallas);
+int comp_listaInfoClientes(EContratacion* arrayContrataciones, int lenContrataciones, EPantalla* arrayPantallas, int lenPantallas);
+float comp_sumaFacturaciones(EContratacion* arrayContrataciones, int lenContrataciones, EPantalla* arrayPantallas, int lenPantallas, char* CUIT);
+int comp_clienteMaxFacturacion(EContratacion* arrayContrataciones, int lenContrataciones, EPantalla* arrayPantallas, int lenPantallas);
 #endif // COMPARTIDA_H_INCLUDED

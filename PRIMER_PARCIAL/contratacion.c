@@ -254,3 +254,33 @@ int cont_cancelarContratacion(EContratacion* arrayContrataciones,int len)
     return retorno;
 }
 
+
+/** \brief
+ *
+ * \param
+ * \param
+ * \return
+ *
+ */
+
+int cont_cuentaContrataciones(EContratacion* arrayContrataciones, int len, char* CUITCliente)
+ {
+     int retorno=-1;
+     int i;
+     int cantidadContrataciones=0;
+     //char bCUITCliente[51];
+
+     if(arrayContrataciones != NULL && len > 0 && CUITCliente != NULL)
+     {
+         for(i=0;i<len;i++)
+        {
+            if(stricmp(CUITCliente,arrayContrataciones[i].cuitCliente)==0 && arrayContrataciones[i].flagDeEstado==ESTADO_CONTRATACION_OCUPADA)
+            {
+                cantidadContrataciones++;
+                retorno=cantidadContrataciones;
+            }
+        }
+     }
+
+     return retorno;
+ }

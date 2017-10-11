@@ -17,6 +17,9 @@ int pant_printPantalla(EPantalla* arrayPantallas, int longitud);
 int pant_buscarIndicePantallaLibre (EPantalla* arrayPantallas, int longitud);
 int pant_bajarPantalla(EPantalla* arrayPantallas,int len);
 int pant_pideId(EPantalla* arrayPantallas,int len);
+float pant_devuelvePrecioPublicacion(EPantalla* arrayPantallas, int lenPantallas, int idPantalla);
+int pant_printPorIdPantalla(EPantalla* arrayPantallas, int longitud, int idPantalla);
+int pant_printNombrePantalla(EPantalla* arrayPantallas, int longitud, int idPantalla);
 
 #endif // PANTALLA_H_INCLUDED
 #define TIPO_PANTALLA_LCD 1

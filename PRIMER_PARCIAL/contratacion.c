@@ -278,10 +278,14 @@ int cont_cuentaContrataciones(EContratacion* arrayContrataciones, int len, char*
             if(stricmp(CUITCliente,arrayContrataciones[i].cuitCliente)==0 && arrayContrataciones[i].flagDeEstado==ESTADO_CONTRATACION_OCUPADA)
             {
                 cantidadContrataciones++;
-                retorno=cantidadContrataciones;
+                retorno=0;
             }
         }
      }
-
+	
+	if(retorno!=-1)
+	{
+		printf("CANTIDAD DE CONTRATACIONES: %d\n", cantidadContrataciones);
+	}
      return retorno;
  }

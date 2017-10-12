@@ -14,12 +14,12 @@ static int modificarPantallaPorIndice(EPantalla* arrayPantallas, int index);
 /** \brief pant_editarPantalla pedira el id de la pantalla a modificar, y validara que exista
  *
  * \param arrayPantallas el array donde se buscara el dato
- * \param len lo que mide el array
+ * \param longitud lo que mide el array
  * \return redirige a otra funcion que modificara los datos, 0 si no se ejecuto correctamente
  *
  */
 
-int pant_editarPantalla(EPantalla* arrayPantallas,int len)
+int pant_editarPantalla(EPantalla* arrayPantallas,int longitud)
 {
     char idStr[32];
     int id;
@@ -27,7 +27,7 @@ int pant_editarPantalla(EPantalla* arrayPantallas,int len)
     if(val_getUnsignedInt(idStr, "Ingrese ID de pantalla a modificar:  ","INCORRECTO",2,32)==0)
     {
         id = atoi(idStr);
-        index = buscarIndiceId(arrayPantallas,len,id);
+        index = buscarIndiceId(arrayPantallas,longitud,id);
         if(index>=0)
         {
            return modificarPantallaPorIndice(arrayPantallas,index);
@@ -88,12 +88,12 @@ static int modificarPantallaPorIndice (EPantalla* arrayPantallas, int index)
  *
  * \param arrayPantallas el array donde se guardaran los datos
  * \param index el indice del array donde estaran esos datos especificamente
- * \param len lo que mide el array
+ * \param longitud lo que mide el array
  * \return -1 si no se pudo ejecutar correctamente, 0 si no hubo problemas
  *
  */
 
-int pant_cargarPantalla(EPantalla* arrayPantallas, int index, int len)
+int pant_cargarPantalla(EPantalla* arrayPantallas, int index, int longitud)
 {
     int retorno = -1;
     int id;
@@ -102,7 +102,7 @@ int pant_cargarPantalla(EPantalla* arrayPantallas, int index, int len)
 	char bPrecioPublicacionXdia[51];
 	char bTipoPantalla[51];
 
-    if(arrayPantallas != NULL && index >= 0 && index < len)
+    if(arrayPantallas != NULL && index >= 0 && index < longitud)
     {
             if(val_getNombre(bNombrePantalla,"\nNOMBRE DE PANTALLA?\t","\nError:\n",3,51)==0)
             {
@@ -112,7 +112,7 @@ int pant_cargarPantalla(EPantalla* arrayPantallas, int index, int len)
 					{
 						if(val_getInt(bTipoPantalla,"\nTIPO DE LA PANTALLA? INGRESE 1: LCD o 2:LED \t","\nError:\n",3,51)==0)
 						{
-							id = buscarProximoId(arrayPantallas,len);
+							id = buscarProximoId(arrayPantallas,longitud);
 							if(id != -1)
 							{
 								arrayPantallas[index].idPantalla=id;
@@ -290,12 +290,12 @@ static int buscarIndiceId(EPantalla* arrayPantallas, int longitud, int id)
 /** \brief pant_bajarPantalla da de baja una pantalla que se encuentra cargada en el array
  *
  * \param arrayPantallas el array donde esta dicha pantalla
- * \param len la longitud del array
+ * \param longitud la longitud del array
  * \return -1 en caso de error, 0 en caso de que se ejecute correctamente
  *
  */
 
-int pant_bajarPantalla(EPantalla* arrayPantallas,int len)
+int pant_bajarPantalla(EPantalla* arrayPantallas,int longitud)
 {
     char idStr[32];
     int id;
@@ -304,7 +304,7 @@ int pant_bajarPantalla(EPantalla* arrayPantallas,int len)
     if(val_getUnsignedInt(idStr, "Ingrese ID de la pantalla a dar de baja:  ","INCORRECTO",2,32)==0)
     {
         id = atoi(idStr);
-        index = buscarIndiceId(arrayPantallas,len,id);
+        index = buscarIndiceId(arrayPantallas,longitud,id);
         if(index>=0)
         {
            arrayPantallas[index].flagDeEstado=ESTADO_PANTALLA_LIBRE;
@@ -319,21 +319,21 @@ int pant_bajarPantalla(EPantalla* arrayPantallas,int len)
 /** \brief pant_pideId pide al usuario el dato del id y valida que este exista y ya este dado de alta en el array
  *
  * \param arrayPantallas el array donde se buscara el pasado
- * \param len la longitud del array
+ * \param longitud la longitud del array
  * \return -1 si hubo errores, 0 si se ejecuto correctamente
  *
  */
 
-int pant_pideId(EPantalla* arrayPantallas,int len)
+int pant_pideId(EPantalla* arrayPantallas,int longitud)
 {
     int retorno = -1;
     int i;
     char bidPantalla[51];
-    if(arrayPantallas != NULL && len > 0)
+    if(arrayPantallas != NULL && longitud > 0)
     {
         printf("INGRESE EL ID DE LA PANTALLA:   \n");
         myFgets(bidPantalla,51,stdin);
-        for(i=0; i<len ; i++)
+        for(i=0; i<longitud ; i++)
         {
             if(arrayPantallas[i].idPantalla == atoi(bidPantalla) && arrayPantallas[i].flagDeEstado== ESTADO_PANTALLA_OCUPADA)
             {
@@ -386,20 +386,20 @@ int pant_printPorIdPantalla(EPantalla* arrayPantallas, int longitud, int idPanta
 /** \brief pant_devuelvePrecioPublicacion busca el precio de la publicacion que tiene la pantalla de la que se le paso el id
  *
  * \param arrayPantallas el array con la informacion de las pantallas
- * \param lenPantallas la longitud del array
+ * \param longitudPantallas la longitud del array
  * \param idPantalla el id de la pantalla a buscar su precio
  * \return -1 si hubo algun error, el valor del precio si no hubo errores
  *
  */
 
-float pant_devuelvePrecioPublicacion(EPantalla* arrayPantallas, int lenPantallas, int idPantalla)
+float pant_devuelvePrecioPublicacion(EPantalla* arrayPantallas, int longitudPantallas, int idPantalla)
 {
     float retorno=-1;
     int i;
 
-    if(arrayPantallas != NULL && lenPantallas > 0)
+    if(arrayPantallas != NULL && longitudPantallas > 0)
     {
-        for(i=0;i<lenPantallas;i++)
+        for(i=0;i<longitudPantallas;i++)
         {
             if(arrayPantallas[i].flagDeEstado == ESTADO_PANTALLA_OCUPADA && idPantalla == arrayPantallas[i].idPantalla)
             {
@@ -415,7 +415,7 @@ float pant_devuelvePrecioPublicacion(EPantalla* arrayPantallas, int lenPantallas
 /** \brief pant_printNombrePantalla imprime el nombre de la pantalla del id que se le paso
  *
  * \param arrayPantallas el array con la informacion de las pantallas
- * \param lenPantallas la longitud del array
+ * \param longitudPantallas la longitud del array
  * \param idPantalla el id de la pantalla a buscar su precio
  * \return VOID
  *

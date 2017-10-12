@@ -10,14 +10,14 @@ typedef struct
     float precioPublicacionXdia;
 }EPantalla;
 
-int pant_editarPantalla(EPantalla* arrayPantallas,int len);
-int pant_cargarPantalla(EPantalla* arrayPantallas, int index, int len);
+int pant_editarPantalla(EPantalla* arrayPantallas,int longitud);
+int pant_cargarPantalla(EPantalla* arrayPantallas, int index, int longitud);
 int pant_initPantalla(EPantalla* arrayPantallas, int longitud);
 int pant_printPantalla(EPantalla* arrayPantallas, int longitud);
 int pant_buscarIndicePantallaLibre (EPantalla* arrayPantallas, int longitud);
-int pant_bajarPantalla(EPantalla* arrayPantallas,int len);
-int pant_pideId(EPantalla* arrayPantallas,int len);
-float pant_devuelvePrecioPublicacion(EPantalla* arrayPantallas, int lenPantallas, int idPantalla);
+int pant_bajarPantalla(EPantalla* arrayPantallas,int longitud);
+int pant_pideId(EPantalla* arrayPantallas,int longitud);
+float pant_devuelvePrecioPublicacion(EPantalla* arrayPantallas, int longitudPantallas, int idPantalla);
 int pant_printPorIdPantalla(EPantalla* arrayPantallas, int longitud, int idPantalla);
 void pant_printNombrePantalla(EPantalla* arrayPantallas, int longitud, int idPantalla);
 

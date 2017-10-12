@@ -116,7 +116,7 @@ int comp_listaInfoClientes(EContratacion* arrayContrataciones, int lenContrataci
     int i;
     float AUXPrecioPublicacionXdia;
     float facturacionTotal;
-    int cantidadContrataciones=0;
+    //int cantidadContrataciones=0;
 
 
     if(arrayContrataciones != NULL && lenContrataciones > 0 && arrayPantallas != NULL && lenPantallas > 0)
@@ -125,15 +125,16 @@ int comp_listaInfoClientes(EContratacion* arrayContrataciones, int lenContrataci
             {
                 if(arrayContrataciones[i].flagDeEstado==ESTADO_CONTRATACION_OCUPADA)
                 {
-                    cantidadContrataciones=cont_cuentaContrataciones(arrayContrataciones,lenContrataciones,arrayContrataciones[i].cuitCliente);
-                    printf("CANTIDAD DE CONTRATACIONES: %d\n", cantidadContrataciones);
-                    AUXPrecioPublicacionXdia=pant_devuelvePrecioPublicacion(arrayPantallas,lenPantallas,arrayContrataciones[i].idPantalla);
-                    if(AUXPrecioPublicacionXdia!=-1)
-                    {
-                        facturacionTotal=arrayContrataciones[i].diasQueDuraPublicacion*AUXPrecioPublicacionXdia;
-                        printf("LA FACTURACION TOTAL POR LA PANTALLA %d ES DE %.2f\n", arrayContrataciones[i].idPantalla, facturacionTotal);
-                        retorno=0;
-                    }
+                    if(cont_cuentaContrataciones(arrayContrataciones,lenContrataciones,arrayContrataciones[i].cuitCliente)!=-1)
+					{
+						AUXPrecioPublicacionXdia=pant_devuelvePrecioPublicacion(arrayPantallas,lenPantallas,arrayContrataciones[i].idPantalla);
+						if(AUXPrecioPublicacionXdia!=-1)
+						{
+							facturacionTotal=arrayContrataciones[i].diasQueDuraPublicacion*AUXPrecioPublicacionXdia;
+							printf("LA FACTURACION TOTAL POR LA PANTALLA %d ES DE %.2f\n", arrayContrataciones[i].idPantalla, facturacionTotal);
+							retorno=0;
+						}
+					}
                 }
 
             }
@@ -161,20 +162,23 @@ float comp_sumaFacturaciones(EContratacion* arrayContrataciones, int lenContrata
     float AUXPrecioPublicacionXdia;
     float facturacion=0;
     float facturacionTotal=0;
+	if(arrayContrataciones != NULL && lenContrataciones>0 && arrayPantallas!=NULL && lenPantallas>0)
+	{
+		for(i=0;i<lenContrataciones;i++)
+		{
+			if(stricmp(CUIT,arrayContrataciones[i].cuitCliente)==0 && arrayContrataciones[i].flagDeEstado==ESTADO_CONTRATACION_OCUPADA)
+			{
+				AUXPrecioPublicacionXdia=pant_devuelvePrecioPublicacion(arrayPantallas,lenPantallas,arrayContrataciones[i].idPantalla);
+				if(AUXPrecioPublicacionXdia!=-1)
+				{
+					facturacion=arrayContrataciones[i].diasQueDuraPublicacion*AUXPrecioPublicacionXdia;
+					facturacionTotal=facturacionTotal+facturacion;
+					retorno=facturacionTotal;
+				}
+			}
+		}
+	}
 
-    for(i=0;i<lenContrataciones;i++)
-    {
-        if(stricmp(CUIT,arrayContrataciones[i].cuitCliente)==0 && arrayContrataciones[i].flagDeEstado==ESTADO_CONTRATACION_OCUPADA)
-        {
-            AUXPrecioPublicacionXdia=pant_devuelvePrecioPublicacion(arrayPantallas,lenPantallas,arrayContrataciones[i].idPantalla);
-            if(AUXPrecioPublicacionXdia!=-1)
-            {
-                facturacion=arrayContrataciones[i].diasQueDuraPublicacion*AUXPrecioPublicacionXdia;
-                facturacionTotal=facturacionTotal+facturacion;
-                retorno=facturacionTotal;
-            }
-        }
-    }
 
     return retorno;
 }

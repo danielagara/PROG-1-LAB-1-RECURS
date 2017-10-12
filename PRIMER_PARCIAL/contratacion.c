@@ -92,7 +92,7 @@ int cont_nuevaContratacion(EContratacion* arrayContrataciones, int index, int le
 
     if(arrayContrataciones != NULL && index >= 0 && index < len && idPantalla!=-1)
     {
-          if(val_getInt(bCUITdelCliente,"\nCUIT DEL CLIENTE?\t","\nError:\n",3,51)==0)
+          if(val_getInt(bCUITdelCliente,"\nCUIT DEL CLIENTE?\t","\nError:\n",3,51)==0 && strlen(bCUITdelCliente)>10)
           {
 			  if(val_getInt(bDiasQueDuraPublicacion,"\nDIAS QUE DURA LA PUBLICACION?\t","\nError:\n",3,51)==0)
 			  {
@@ -278,14 +278,15 @@ int cont_cuentaContrataciones(EContratacion* arrayContrataciones, int len, char*
             if(stricmp(CUITCliente,arrayContrataciones[i].cuitCliente)==0 && arrayContrataciones[i].flagDeEstado==ESTADO_CONTRATACION_OCUPADA)
             {
                 cantidadContrataciones++;
-                retorno=0;
+                retorno=cantidadContrataciones;
             }
         }
      }
-	
+
 	if(retorno!=-1)
 	{
 		printf("CANTIDAD DE CONTRATACIONES: %d\n", cantidadContrataciones);
 	}
+
      return retorno;
  }

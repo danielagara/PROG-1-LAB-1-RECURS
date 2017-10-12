@@ -87,33 +87,33 @@
 	"validar.h"
 	<string.h>
 
-1507729920 source:c:\users\daniela\documents\facu\segundo cuatrimestre\proglab 1\github\prog-1-lab-1-recurs-master\primer_parcial\contratacion.c
+1507812421 source:c:\users\daniela\documents\facu\segundo cuatrimestre\proglab 1\github\prog-1-lab-1-recurs-master\primer_parcial\contratacion.c
 	<stdio.h>
 	<stdlib.h>
 	"contratacion.h"
 	"validar.h"
 	<string.h>
 
-1507729920 c:\users\daniela\documents\facu\segundo cuatrimestre\proglab 1\github\prog-1-lab-1-recurs-master\primer_parcial\contratacion.h
+1507755972 c:\users\daniela\documents\facu\segundo cuatrimestre\proglab 1\github\prog-1-lab-1-recurs-master\primer_parcial\contratacion.h
 
-1507581194 c:\users\daniela\documents\facu\segundo cuatrimestre\proglab 1\github\prog-1-lab-1-recurs-master\primer_parcial\validar.h
+1507755972 c:\users\daniela\documents\facu\segundo cuatrimestre\proglab 1\github\prog-1-lab-1-recurs-master\primer_parcial\validar.h
 
-1507726458 source:c:\users\daniela\documents\facu\segundo cuatrimestre\proglab 1\github\prog-1-lab-1-recurs-master\primer_parcial\pantalla.c
+1507755972 source:c:\users\daniela\documents\facu\segundo cuatrimestre\proglab 1\github\prog-1-lab-1-recurs-master\primer_parcial\pantalla.c
 	<stdio.h>
 	<stdlib.h>
 	"pantalla.h"
 	"validar.h"
 	"string.h"
 
-1507726434 c:\users\daniela\documents\facu\segundo cuatrimestre\proglab 1\github\prog-1-lab-1-recurs-master\primer_parcial\pantalla.h
+1507755972 c:\users\daniela\documents\facu\segundo cuatrimestre\proglab 1\github\prog-1-lab-1-recurs-master\primer_parcial\pantalla.h
 
-1507581194 source:c:\users\daniela\documents\facu\segundo cuatrimestre\proglab 1\github\prog-1-lab-1-recurs-master\primer_parcial\validar.c
+1507755972 source:c:\users\daniela\documents\facu\segundo cuatrimestre\proglab 1\github\prog-1-lab-1-recurs-master\primer_parcial\validar.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"validar.h"
 
-1507733682 source:c:\users\daniela\documents\facu\segundo cuatrimestre\proglab 1\github\prog-1-lab-1-recurs-master\primer_parcial\compartida.c
+1507817299 source:c:\users\daniela\documents\facu\segundo cuatrimestre\proglab 1\github\prog-1-lab-1-recurs-master\primer_parcial\compartida.c
 	<stdio.h>
 	<stdlib.h>
 	"contratacion.h"
@@ -121,7 +121,7 @@
 	"validar.h"
 	<string.h>
 
-1507733406 source:c:\users\daniela\documents\facu\segundo cuatrimestre\proglab 1\github\prog-1-lab-1-recurs-master\primer_parcial\main.c
+1507755972 source:c:\users\daniela\documents\facu\segundo cuatrimestre\proglab 1\github\prog-1-lab-1-recurs-master\primer_parcial\main.c
 	<stdio.h>
 	<stdlib.h>
 	"pantalla.h"
@@ -129,7 +129,7 @@
 	"compartida.h"
 	"validar.h"
 
-1507733573 c:\users\daniela\documents\facu\segundo cuatrimestre\proglab 1\github\prog-1-lab-1-recurs-master\primer_parcial\compartida.h
+1507814234 c:\users\daniela\documents\facu\segundo cuatrimestre\proglab 1\github\prog-1-lab-1-recurs-master\primer_parcial\compartida.h
 
 1507768573 source:d:\clasesprogramacion\prog-1-lab-1-recurs-master\primer_parcial\contratacion.c
 	<stdio.h>

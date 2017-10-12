@@ -100,6 +100,38 @@ void comp_listaContrataciones(EContratacion* arrayContrataciones, int lenContrat
 }
 
 
+/** \brief
+ *
+ * \param
+ * \param
+ * \return
+ *
+ */
+
+ void comp_printFacturaciones(EContratacion* arrayContrataciones, int lenContrataciones, EPantalla* arrayPantallas, int lenPantallas, char* CUIT)
+ {
+    int i;
+    float AUXPrecioPublicacionXdia;
+    float facturacion=0;
+
+	if(arrayContrataciones != NULL && lenContrataciones>0 && arrayPantallas!=NULL && lenPantallas>0)
+	{
+		for(i=0;i<lenContrataciones;i++)
+		{
+			if(stricmp(CUIT,arrayContrataciones[i].cuitCliente)==0 && arrayContrataciones[i].flagDeEstado==ESTADO_CONTRATACION_OCUPADA)
+			{
+				AUXPrecioPublicacionXdia=pant_devuelvePrecioPublicacion(arrayPantallas,lenPantallas,arrayContrataciones[i].idPantalla);
+				if(AUXPrecioPublicacionXdia!=-1)
+				{
+					facturacion=arrayContrataciones[i].diasQueDuraPublicacion*AUXPrecioPublicacionXdia;
+					printf("\nLA FACTURACION DE LA CONTRATACION DE PANTALLA CON ID %d ES DE %.2f\n",arrayContrataciones[i].idPantalla, facturacion);
+				}
+			}
+		}
+	}
+ }
+
+
 /** \brief comp_listaInfoClientes imprime por cliente la cantidad de contrataciones y el total a pagar por cada una
  *
  * \param arrayContrataciones array que contiene la informacion de cada contratacion
@@ -114,10 +146,6 @@ int comp_listaInfoClientes(EContratacion* arrayContrataciones, int lenContrataci
 {
     int retorno=-1;
     int i;
-    float AUXPrecioPublicacionXdia;
-    float facturacionTotal;
-    //int cantidadContrataciones=0;
-
 
     if(arrayContrataciones != NULL && lenContrataciones > 0 && arrayPantallas != NULL && lenPantallas > 0)
     {
@@ -125,16 +153,8 @@ int comp_listaInfoClientes(EContratacion* arrayContrataciones, int lenContrataci
             {
                 if(arrayContrataciones[i].flagDeEstado==ESTADO_CONTRATACION_OCUPADA)
                 {
-                    if(cont_cuentaContrataciones(arrayContrataciones,lenContrataciones,arrayContrataciones[i].cuitCliente)!=-1)
-					{
-						AUXPrecioPublicacionXdia=pant_devuelvePrecioPublicacion(arrayPantallas,lenPantallas,arrayContrataciones[i].idPantalla);
-						if(AUXPrecioPublicacionXdia!=-1)
-						{
-							facturacionTotal=arrayContrataciones[i].diasQueDuraPublicacion*AUXPrecioPublicacionXdia;
-							printf("LA FACTURACION TOTAL POR LA PANTALLA %d ES DE %.2f\n", arrayContrataciones[i].idPantalla, facturacionTotal);
-							retorno=0;
-						}
-					}
+                    cont_cuentaContrataciones(arrayContrataciones,lenContrataciones,arrayContrataciones[i].cuitCliente);
+                    comp_printFacturaciones(arrayContrataciones,lenContrataciones,arrayPantallas,lenPantallas,arrayContrataciones[i].cuitCliente);
                 }
 
             }
@@ -142,7 +162,6 @@ int comp_listaInfoClientes(EContratacion* arrayContrataciones, int lenContrataci
 
     return retorno;
 }
-
 
 /** \brief comp_sumaFacturaciones suma todas las facturaciones que tiene un cliente de todas sus contrataciones
  *

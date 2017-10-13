@@ -18,6 +18,7 @@ int cont_editarContratacion(EContratacion* arrayContrataciones,int len);
 char cont_pideCUIT(EContratacion* arrayContrataciones,int len);
 int cont_cancelarContratacion(EContratacion* arrayContrataciones,int len);
 int cont_cuentaContrataciones(EContratacion* arrayContrataciones, int len, char* CUITCliente);
+void cont_buscaCuitsDiferentes(EContratacion* arrayContrataciones, int lenContrataciones);
 
 #endif // CONTRATACION_H_INCLUDED
 #define ESTADO_CONTRATACION_LIBRE 0

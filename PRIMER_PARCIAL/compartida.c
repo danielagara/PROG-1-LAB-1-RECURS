@@ -238,4 +238,3 @@ int comp_clienteMaxFacturacion(EContratacion* arrayContrataciones, int lenContra
 
     return retorno;
 }
-

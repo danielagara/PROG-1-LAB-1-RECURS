@@ -14,6 +14,8 @@ int main()
 
     EContratacion arrayContrataciones[TAM_CONTRATACIONES];
     cont_initProductos(arrayContrataciones,TAM_CONTRATACIONES);
+
+    //int arrayindices[TAM_CONTRATACIONES];
     char bufferInt[40];
 
     do
@@ -58,8 +60,11 @@ int main()
                 printf("2- Cliente con importe más alto a facturar\n");
                 comp_clienteMaxFacturacion(arrayContrataciones,TAM_CONTRATACIONES,arrayPantallas,TAM_PANTALLAS);
                 break;
+            case 11:
+                printf("PRUEBA EL ARRAY CON DIF CUITS\n"); //PROBAR
+                //cont_buscaCuitsDiferentes(arrayContrataciones,TAM_CONTRATACIONES);
         }
 
-    }while( atoi(bufferInt) != 11);
+    }while( atoi(bufferInt) != 12);
     return 0;
 }

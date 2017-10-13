@@ -290,3 +290,34 @@ int cont_cuentaContrataciones(EContratacion* arrayContrataciones, int len, char*
 
      return retorno;
  }
+
+
+ /** \brief
+  *
+  * \param
+  * \param
+  * \return
+  *
+  */
+
+void cont_buscaCuitsDiferentes(EContratacion* arrayContrataciones, int lenContrataciones)
+{
+    int i,j,k;
+    int arrayIndicesCUITS[lenContrataciones];
+
+    for(i=0;i<lenContrataciones-1;i++)
+    {
+        for(j=1;j<lenContrataciones;j++)
+        {
+            if(arrayContrataciones[i].flagDeEstado==ESTADO_CONTRATACION_OCUPADA && stricmp(arrayContrataciones[i].cuitCliente, arrayContrataciones[j].cuitCliente)!=0)
+            {
+                for(k=0;k<lenContrataciones;k++)
+                {
+                    arrayIndicesCUITS[k]=i;
+                    printf("\nEL INDICE ES: %d", arrayIndicesCUITS[k]);
+                }
+
+            }
+        }
+    }
+}

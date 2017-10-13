@@ -175,3 +175,47 @@
 	"validar.h"
 	<string.h>
 
+1507828644 source:c:\users\alumno\downloads\prog-1-lab-1-recurs-master\primer_parcial\pantalla.c
+	<stdio.h>
+	<stdlib.h>
+	"pantalla.h"
+	"validar.h"
+	"string.h"
+
+1507828644 c:\users\alumno\downloads\prog-1-lab-1-recurs-master\primer_parcial\pantalla.h
+
+1507828644 c:\users\alumno\downloads\prog-1-lab-1-recurs-master\primer_parcial\validar.h
+
+1507828644 source:c:\users\alumno\downloads\prog-1-lab-1-recurs-master\primer_parcial\validar.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"validar.h"
+
+1507844499 source:c:\users\alumno\downloads\prog-1-lab-1-recurs-master\primer_parcial\compartida.c
+	<stdio.h>
+	<stdlib.h>
+	"contratacion.h"
+	"pantalla.h"
+	"validar.h"
+	<string.h>
+
+1507844954 c:\users\alumno\downloads\prog-1-lab-1-recurs-master\primer_parcial\contratacion.h
+
+1507844954 source:c:\users\alumno\downloads\prog-1-lab-1-recurs-master\primer_parcial\contratacion.c
+	<stdio.h>
+	<stdlib.h>
+	"contratacion.h"
+	"validar.h"
+	<string.h>
+
+1507844962 source:c:\users\alumno\downloads\prog-1-lab-1-recurs-master\primer_parcial\main.c
+	<stdio.h>
+	<stdlib.h>
+	"pantalla.h"
+	"contratacion.h"
+	"compartida.h"
+	"validar.h"
+
+1507828644 c:\users\alumno\downloads\prog-1-lab-1-recurs-master\primer_parcial\compartida.h
+

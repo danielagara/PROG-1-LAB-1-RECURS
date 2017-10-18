@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1508368401 source:d:\clasesprogramacion\clase19_punteros_memoria\main.c
+	<stdio.h>
+	<stdlib.h>
+	"empleado.h"
+
+1508368411 d:\clasesprogramacion\clase19_punteros_memoria\empleado.h
+
+1508368312 source:d:\clasesprogramacion\clase19_punteros_memoria\empleado.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"empleado.h"
+

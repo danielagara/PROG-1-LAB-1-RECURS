@@ -15,6 +15,8 @@ int main()
     EContratacion arrayContrataciones[TAM_CONTRATACIONES];
     cont_initProductos(arrayContrataciones,TAM_CONTRATACIONES);
 
+    int arrayDifCuits[TAM_CONTRATACIONES];
+
     //int arrayindices[TAM_CONTRATACIONES];
     char bufferInt[40];
 
@@ -62,7 +64,7 @@ int main()
                 break;
             case 11:
                 printf("PRUEBA EL ARRAY CON DIF CUITS\n"); //PROBAR
-                //cont_buscaCuitsDiferentes(arrayContrataciones,TAM_CONTRATACIONES);
+                cont_buscaCuitsDiferentes(arrayContrataciones,TAM_CONTRATACIONES,arrayDifCuits);
         }
 
     }while( atoi(bufferInt) != 12);

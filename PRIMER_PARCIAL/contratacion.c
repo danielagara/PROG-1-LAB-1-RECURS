@@ -300,24 +300,43 @@ int cont_cuentaContrataciones(EContratacion* arrayContrataciones, int len, char*
   *
   */
 
-void cont_buscaCuitsDiferentes(EContratacion* arrayContrataciones, int lenContrataciones)
+void cont_buscaCuitsDiferentes(EContratacion* arrayContrataciones, int lenContrataciones, int* arrayIndicesCUITS) //FUNCA FALTA CAMBIAR LAS OTRAS FUNCIONES PARA QUE BUSQUEN EL CUIT DE ESOS INDICES
 {
-    int i,j,k;
-    int arrayIndicesCUITS[lenContrataciones];
+    int i=0;
+	int j, k=0;
+    int l=0;
+    int duplicate=0;
+    int index=0;
 
-    for(i=0;i<lenContrataciones-1;i++)
-    {
-        for(j=1;j<lenContrataciones;j++)
-        {
-            if(arrayContrataciones[i].flagDeEstado==ESTADO_CONTRATACION_OCUPADA && stricmp(arrayContrataciones[i].cuitCliente, arrayContrataciones[j].cuitCliente)!=0)
-            {
-                for(k=0;k<lenContrataciones;k++)
-                {
-                    arrayIndicesCUITS[k]=i;
-                    printf("\nEL INDICE ES: %d", arrayIndicesCUITS[k]);
-                }
+    for(k=0;k<lenContrataciones;k++)
+   {
+       arrayIndicesCUITS[k]=-1;
+   }
 
+for(i = 0; i < lenContrataciones; i++)
+{
+        for(j = 0; j < index; j++)
+		{
+            if(stricmp(arrayContrataciones[i].cuitCliente,arrayContrataciones[j].cuitCliente)==0)
+			{
+                duplicate = 1;
+                break;
             }
         }
+        if(duplicate!=1 && arrayContrataciones[i].flagDeEstado==ESTADO_CONTRATACION_OCUPADA && arrayContrataciones[j].flagDeEstado==ESTADO_CONTRATACION_OCUPADA) {
+           arrayIndicesCUITS[index] = i;
+           index++;
+        }
+        duplicate = 0; // restart
     }
+
+
+ for(l=0;l<lenContrataciones;l++)
+   {
+       if(arrayIndicesCUITS[l]!=-1)
+       {
+           printf("\nEL INDICE ES: %d", arrayIndicesCUITS[l]);
+       }
+   }
+
 }

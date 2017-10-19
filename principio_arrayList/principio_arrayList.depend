@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1508375012 source:d:\clasesprogramacion\principio_arraylist\arraylist.c
+	<stdio.h>
+	<stdlib.h>
+	"arrayList.h"
+
+1508375011 d:\clasesprogramacion\principio_arraylist\arraylist.h
+
+1508375022 source:d:\clasesprogramacion\principio_arraylist\main.c
+	<stdio.h>
+	<stdlib.h>
+	"arrayList.h"
+

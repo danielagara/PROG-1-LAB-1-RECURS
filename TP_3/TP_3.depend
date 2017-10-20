@@ -1,0 +1,25 @@
+# depslib dependency file v1.0
+1508462250 source:d:\prog-1-lab-1-recurs-master\tp_3\main.c
+	<stdio.h>
+	<stdlib.h>
+	"pelicula.h"
+	"validar.h"
+	<string.h>
+
+1508462250 d:\prog-1-lab-1-recurs-master\tp_3\pelicula.h
+
+1508460456 d:\prog-1-lab-1-recurs-master\tp_3\validar.h
+
+1508460427 source:d:\prog-1-lab-1-recurs-master\tp_3\pelicula.c
+	<stdio.h>
+	<stdlib.h>
+	"pelicula.h"
+	<string.h>
+	"validar.h"
+
+1508460456 source:d:\prog-1-lab-1-recurs-master\tp_3\validar.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"validar.h"
+

@@ -52,7 +52,7 @@ static int modificarPeliculaPorIndice(EPelicula* arrayPeliculas, int index)
 	char bDuracion[51];
 	char bDescripcion[51];
 	char bPuntaje[51];
-	char bLinkImagen[51];
+	char bLinkImagen[100];
 
     if(arrayPeliculas != NULL && index >= 0)
     {
@@ -66,7 +66,7 @@ static int modificarPeliculaPorIndice(EPelicula* arrayPeliculas, int index)
 						{
 							if(val_getInt(bPuntaje,"\nPUNTAJE DE LA PELICULA?\t","\nERROR: PUNTAJE NO VALIDO, DE 1 A 5\n",3,51)==0)
 							{
-								if(val_getDescripcion(bLinkImagen,"\nLINK A LA IMAGEN DE LA PORTADA: \t","\nERROR: LINK INVALIDO\n",3,51)==0)
+								if(val_getLink(bLinkImagen,"\nLINK A LA IMAGEN DE LA PORTADA: \t","\nERROR: LINK INVALIDO\n",3,100)==0)
 								{
 									arrayPeliculas[index].flagDeEstado=ESTADO_PELICULA_OCUPADA;
 									strncpy(arrayPeliculas[index].titulo,bTitulo,51);
@@ -74,7 +74,7 @@ static int modificarPeliculaPorIndice(EPelicula* arrayPeliculas, int index)
 									arrayPeliculas[index].duracion=atoi(bDuracion);
 									strncpy(arrayPeliculas[index].descripcion,bDescripcion,51);
 									arrayPeliculas[index].puntaje=atoi(bPuntaje);
-									strncpy(arrayPeliculas[index].linkImagen,bLinkImagen,51);
+									strncpy(arrayPeliculas[index].linkImagen,bLinkImagen,100);
 									printf("LA PELICULA CON ID %d SE MODIFICO CORRECTAMENTE\t",arrayPeliculas[index].idPelicula);
 								}
 							}
@@ -104,7 +104,7 @@ int peli_cargarPelicula(EPelicula* arrayPeliculas, int index, int longitud)
 	char bDuracion[51];
 	char bDescripcion[51];
 	char bPuntaje[51];
-	char bLinkImagen[51];
+	char bLinkImagen[100];
 
     if(arrayPeliculas != NULL && index >= 0 && index < longitud)
     {
@@ -118,7 +118,7 @@ int peli_cargarPelicula(EPelicula* arrayPeliculas, int index, int longitud)
 						{
 							if(val_getInt(bPuntaje,"\nPUNTAJE DE LA PELICULA?\t","\nERROR: PUNTAJE NO VALIDO, DE 1 A 5\n",3,51)==0)
 							{
-								if(val_getDescripcion(bLinkImagen,"\nLINK A LA IMAGEN DE LA PORTADA: \t","\nERROR: LINK INVALIDO\n",3,51)==0)
+								if(val_getLink(bLinkImagen,"\nLINK A LA IMAGEN DE LA PORTADA: \t","\nERROR: LINK INVALIDO\n",3,100)==0)
 								{
 									id = buscarProximoId(arrayPeliculas,longitud);
 									if(id != -1)
@@ -130,7 +130,7 @@ int peli_cargarPelicula(EPelicula* arrayPeliculas, int index, int longitud)
 										arrayPeliculas[index].duracion=atoi(bDuracion);
 										strncpy(arrayPeliculas[index].descripcion,bDescripcion,51);
 										arrayPeliculas[index].puntaje=atoi(bPuntaje);
-										strncpy(arrayPeliculas[index].linkImagen,bLinkImagen,51);
+										strncpy(arrayPeliculas[index].linkImagen,bLinkImagen,100);
 										printf("EL ID DE LA PELICULA ES %d\t",arrayPeliculas[index].idPelicula);
 									}
 								}
@@ -320,27 +320,84 @@ int peli_escribeArchivo(EPelicula* arrayPeliculas, int longitudPeliculas)
  * \return
  *
  */
-/*
-int peli_generaPaginaWeb( FILE* pArchivoAbajo, FILE* pArchivoHTML, EPelicula* arrayPeliculas, int longitudPeliculas)
-{
 
-    pArchivoArriba=fopen("parteArriba.txt", "r");
-    pArchivoAbajo=fopen("parteAbajo.txt","r");
+int peli_generaPaginaWeb(EPelicula* arrayPeliculas, int longitudPeliculas)
+{
+    int retorno=-1;
+    int i;
+
+    FILE* pArchivoHTML;
+
+    char nombreArchivo[]="paginaweb.html";
+
     pArchivoHTML=fopen("paginaweb.html", "w+");
-    if(pArchivoArriba !=NULL && pArchivoAbajo != NULL && pArchivoHTML !=NULL)
+
+    if(pArchivoHTML !=NULL)
     {
        //PRINTEO LO DE ARRIBA
-       //FOR E IMPRIMO TODO LO DEL MEDIO
-       //PRINTEO LO DE ABAJO
-    }
-}
-*/
+       peli_archivoHTMLarriba(nombreArchivo);
 
-int peli_archivoHTMLarriba(void)
+       for(i=0;i<longitudPeliculas;i++)
+       {
+           if(arrayPeliculas[i].flagDeEstado==ESTADO_PELICULA_OCUPADA)
+           {
+                fprintf(pArchivoHTML, "%s","			<div class='row'>\n\n\n");
+                fprintf(pArchivoHTML, "%s","			<article class='col-md-4 article-intro'>\n");
+                fprintf(pArchivoHTML, "%s","                <a href='#'>\n");
+                fprintf(pArchivoHTML, "%s","                    <img class='img-responsive img-rounded' src='");
+                fprintf(pArchivoHTML, "%s",arrayPeliculas[i].linkImagen);
+                fprintf(pArchivoHTML, "%s","' alt=''>\n");
+                fprintf(pArchivoHTML, "%s","                </a>\n");
+                fprintf(pArchivoHTML, "%s","                <h3>\n");
+                fprintf(pArchivoHTML, "%s","                    <a href='#'>");
+                fprintf(pArchivoHTML, "%s", arrayPeliculas[i].titulo);
+                fprintf(pArchivoHTML, "%s","</a>\n");
+                fprintf(pArchivoHTML, "%s","                </h3>\n");
+                fprintf(pArchivoHTML, "%s","				<ul>\n");
+                fprintf(pArchivoHTML, "%s","					<li>");
+                fprintf(pArchivoHTML, "%s","Genero: ");
+                fprintf(pArchivoHTML, "%s", arrayPeliculas[i].genero);
+                fprintf(pArchivoHTML, "%s","</li>\n");
+                fprintf(pArchivoHTML, "%s","					<li>");
+                fprintf(pArchivoHTML, "%s","Puntaje: ");
+                fprintf(pArchivoHTML, "%d", arrayPeliculas[i].puntaje);
+                fprintf(pArchivoHTML, "%s","</li>\n");
+                fprintf(pArchivoHTML, "%s","					<li>");
+                fprintf(pArchivoHTML, "%s","Duracion: ");
+                fprintf(pArchivoHTML, "%d", arrayPeliculas[i].duracion);
+                fprintf(pArchivoHTML, "%s","</li>\n");
+                fprintf(pArchivoHTML, "%s","				</ul>\n");
+                fprintf(pArchivoHTML, "%s","                <p>");
+                fprintf(pArchivoHTML, "%s", arrayPeliculas[i].descripcion);
+                fprintf(pArchivoHTML, "%s","</p>\n");
+                fprintf(pArchivoHTML, "%s","            </article>\n");
+                fprintf(pArchivoHTML, "%s","        </div>\n");
+                fprintf(pArchivoHTML, "%s","        <!-- /.row -->\n");
+           }
+       }
+
+       peli_archivoHTMLabajo(nombreArchivo);
+       fclose(pArchivoHTML);
+       retorno=0;
+    }
+
+    return retorno;
+}
+
+/** \brief
+ *
+ * \param
+ * \param
+ * \return
+ *
+ */
+
+
+int peli_archivoHTMLarriba(char* nombreArchivo)
 {
     FILE* pArchivoArriba;
     int retorno=-1;
-    pArchivoArriba=fopen("parteArriba.txt", "w+");
+    pArchivoArriba=fopen(nombreArchivo, "w+");
 
     if(pArchivoArriba!=NULL)
     {
@@ -362,14 +419,23 @@ int peli_archivoHTMLarriba(void)
 
 }
 
-int peli_archivoHTMLabajo(void)
+/** \brief
+ *
+ * \param
+ * \param
+ * \return
+ *
+ */
+
+
+int peli_archivoHTMLabajo(char* nombreArchivo)
 {
     FILE* pArchivoAbajo;
     int retorno=-1;
-    pArchivoAbajo=fopen("parteAbajo.txt", "w+");
+    pArchivoAbajo=fopen(nombreArchivo, "a");
     if(pArchivoAbajo!=NULL)
     {
-        fprintf(pArchivoAbajo, "%s","		</div>\n");
+        fprintf(pArchivoAbajo, "%s","\n		</div>\n");
         fprintf(pArchivoAbajo, "%s","    <!-- /.container -->\n");
         fprintf(pArchivoAbajo, "%s","    <!-- jQuery -->\n");
         fprintf(pArchivoAbajo, "%s","    <script src='js/jquery-1.11.3.min.js'></script>\n");

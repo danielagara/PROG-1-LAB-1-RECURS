@@ -6,7 +6,7 @@ typedef struct{
     int duracion;
     char descripcion[51];
     int puntaje;
-    char linkImagen[51];
+    char linkImagen[100];
     int flagDeEstado;
     int idPelicula;
 }EPelicula;
@@ -17,8 +17,9 @@ int peli_initPelicula(EPelicula* arrayPeliculas, int longitud);
 int peli_cargarPelicula(EPelicula* arrayPeliculas, int index, int longitud);
 int peli_editarPelicula(EPelicula* arrayPeliculas,int longitud);
 int peli_escribeArchivo(EPelicula* arrayPeliculas, int longitudPeliculas);
-int peli_archivoHTMLarriba(void);
-int peli_archivoHTMLabajo(void);
+int peli_generaPaginaWeb(EPelicula* arrayPeliculas, int longitudPeliculas);
+int peli_archivoHTMLarriba(char* nombreArchivo);
+int peli_archivoHTMLabajo(char* nombreArchivo);
 #endif // PELICULA_H_INCLUDED
 
 #define ESTADO_PELICULA_LIBRE 0

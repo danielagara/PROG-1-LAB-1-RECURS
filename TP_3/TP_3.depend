@@ -23,3 +23,27 @@
 	<string.h>
 	"validar.h"
 
+1508507091 source:c:\users\daniela\documents\facu\segundo cuatrimestre\proglab 1\github\prog-1-lab-1-recurs-master\tp_3\main.c
+	<stdio.h>
+	<stdlib.h>
+	"pelicula.h"
+	"validar.h"
+	<string.h>
+
+1508507657 c:\users\daniela\documents\facu\segundo cuatrimestre\proglab 1\github\prog-1-lab-1-recurs-master\tp_3\pelicula.h
+
+1508507495 c:\users\daniela\documents\facu\segundo cuatrimestre\proglab 1\github\prog-1-lab-1-recurs-master\tp_3\validar.h
+
+1508507495 source:c:\users\daniela\documents\facu\segundo cuatrimestre\proglab 1\github\prog-1-lab-1-recurs-master\tp_3\validar.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"validar.h"
+
+1508507657 source:c:\users\daniela\documents\facu\segundo cuatrimestre\proglab 1\github\prog-1-lab-1-recurs-master\tp_3\pelicula.c
+	<stdio.h>
+	<stdlib.h>
+	"pelicula.h"
+	<string.h>
+	"validar.h"
+

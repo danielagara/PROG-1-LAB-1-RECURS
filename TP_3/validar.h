@@ -12,4 +12,5 @@ int val_getInt(char* destino, char* mensaje,char* mensajeError,int intentos,int 
 int val_validarInt(char* buffer);
 void myFgets(char* buffer, int limite ,FILE* archivo);
 int val_validarDescripcion(char* buffer);
+int val_getLink(char* destino, char* mensaje,char* mensajeError,int intentos,int limite);
 #endif

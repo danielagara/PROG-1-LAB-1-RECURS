@@ -33,8 +33,7 @@ int main()
                 peli_escribeArchivo(arrayPeliculas,TAM_PELICULAS);
                 break;
             case 4:
-                peli_archivoHTMLarriba();
-                peli_archivoHTMLabajo();
+                peli_generaPaginaWeb(arrayPeliculas,TAM_PELICULAS);
                 break;
         }
         printf("\n");

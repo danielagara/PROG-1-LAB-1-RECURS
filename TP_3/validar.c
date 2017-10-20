@@ -340,7 +340,7 @@ int val_validarDescripcion(char* buffer)
     int retorno = 0;
     while(buffer[i] != '\0')
     {
-        if((buffer[i] < '0' || buffer[i] > '9') && buffer[i] != '.' && buffer[i] != ' ' && buffer[i] != '-'  && buffer[i] != '_'  && (buffer[i] < 'a' || buffer[i] > 'z') && (buffer[i] < 'A' || buffer[i] > 'Z'))
+        if((buffer[i] < '0' || buffer[i] > '9') && buffer[i] != '.' && buffer[i] != ' ' && buffer[i] != '-'  && buffer[i] != '_'  && (buffer[i] < 'a' || buffer[i] > 'z') && (buffer[i] < 'A' || buffer[i] > 'Z') )
         {
             retorno = -1;
             break;
@@ -392,3 +392,30 @@ int val_getDescripcion(char* destino, char* mensaje,char* mensajeError,int inten
     return retorno;
 }
 
+
+/** \brief
+ *
+ * \param
+ * \param
+ * \return
+ *
+ */
+
+ int val_getLink(char* destino, char* mensaje,char* mensajeError,int intentos,int limite)
+{
+    int retorno = -1;
+    char buffer[MAX_INPUT_BUFFER];
+
+    if(destino != NULL && limite > 0 && limite < MAX_INPUT_BUFFER)
+    {
+        printf(mensaje);
+        for( ;intentos>0;intentos--)
+        {
+            myFgets(buffer, limite ,stdin);
+            strncpy(destino,buffer,limite);
+            retorno = 0;
+            break;
+        }
+    }
+    return retorno;
+}

@@ -1,0 +1,1 @@
+int parserEmployee(ArrayList* nominaEmployees);

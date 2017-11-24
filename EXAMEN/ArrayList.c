@@ -592,7 +592,7 @@ ArrayList* al_filter(ArrayList* this, int(*pFunc)(void*))
          {
              if(pFunc(al_get(this,i)) == 1)
              {
-                 al_add(listaFiltrada,(al_get(this,i)));
+                 al_add(listaFiltrada,al_get(this,i));
              }
          }
      }

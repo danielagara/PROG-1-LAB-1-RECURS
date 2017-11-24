@@ -217,7 +217,7 @@ void employee_print(void* pEmployee)
 int employee_filterEmployee(void* item)
 {
     int retorno=0;
-    if((employee_getAge((Employee*)item))>=30 && (employee_getType((Employee*)item))== EMPLOYEE_TYPE_PROGRAMMER)
+    if((employee_getAge((Employee*)item))>30 && (employee_getType((Employee*)item)) == EMPLOYEE_TYPE_PROGRAMMER)
     {
         retorno=1;
     }
@@ -228,7 +228,3 @@ int employee_filterEmployee(void* item)
 
     return retorno;
 }
-
-
-
-

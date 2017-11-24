@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include "ArrayList.h"
-#include "Employee.h"
 
 // funciones privadas
 int resizeUp(ArrayList* this);
@@ -593,7 +592,7 @@ ArrayList* al_filter(ArrayList* this, int(*pFunc)(void*))
          {
              if(pFunc(al_get(this,i)) == 1)
              {
-                 al_add(listaFiltrada,((Employee*)al_get(this,i)));
+                 al_add(listaFiltrada,(al_get(this,i)));
              }
          }
      }

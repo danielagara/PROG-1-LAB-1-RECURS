@@ -311,7 +311,7 @@ int val_validarDescripcion(char* buffer)
 
     while(buffer[i] != '\0')
     {
-        if((buffer[i] < '0' || buffer[i] > '9') && buffer[i] != '.' && buffer[i] != '-'  && buffer[i] != '_'  && (buffer[i] < 'a' || buffer[i] > 'z') && (buffer[i] < 'A' || buffer[i] > 'Z'))
+        if((buffer[i] < '0' || buffer[i] > '9') && buffer[i] != '.' && buffer[i] != ' ' && buffer[i] != '-'  && buffer[i] != '_'  && (buffer[i] < 'a' || buffer[i] > 'z') && (buffer[i] < 'A' || buffer[i] > 'Z'))
         {
             retorno = -1;
             break;

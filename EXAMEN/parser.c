@@ -27,7 +27,7 @@ int parserEmployee(ArrayList* nominaEmployees)
         do{
             if(fscanf(pFile,"%[^,],%[^,],%[^,],%[^,],%[^\n]\n",var1,var2,var3,var4,var5) >0)
 			{
-				if(val_validarInt(var1)!=-1 && val_validarDescripcion(var2)!=-1 && val_validarInt(var4)!=-1 && val_validarInt(var5)!=-1)
+				if(val_validarInt(var1)!=-1 && val_validarDescripcion(var2)!=-1 && val_validarDescripcion(var3)!=-1 && val_validarInt(var4)!=-1 && val_validarInt(var5)!=-1)
 				{
 					auxEmployee=employee_new(atoi(var1), var2, var3,atoi(var4), atoi(var5));
 					al_add(nominaEmployees, auxEmployee);

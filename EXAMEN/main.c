@@ -33,16 +33,16 @@ int main()
     ArrayList* lista = al_newArrayList();
 
     parserEmployee(lista);
-
+//1 y 2
     printf("*********** LISTA COMPLETA ****************\n");
     int i;
     for(i=0; i<al_len(lista); i++)
     {
         Employee* e = al_get(lista,i);
-        employee_print(e);
+        //employee_print(e);
 
     }
-
+//3
     // Obtengo lista filtrada
     ArrayList* filteredList = al_filter(lista,employee_filterEmployee);
 
@@ -52,7 +52,7 @@ int main()
         Employee* e = (Employee*)al_get(filteredList,i);
         employee_print(e);
     }
-
+//4
     // genero archivo con lista filtrada
     dm_dumpEmployeeList(filteredList);
 

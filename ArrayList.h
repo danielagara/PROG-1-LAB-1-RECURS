@@ -249,6 +249,16 @@ void al_map(ArrayList* this, void(*pFunc)(void*));
  */
 void al_mapReloaded(ArrayList* this, void(*pFunc)(void*), int(*pFuncCriterio)(void*));
 
+/** \brief
+ *
+ * \param
+ * \param
+ * \return
+ *
+ */
+
+ArrayList* al_filter(ArrayList* this, int(*pFunc)(void*));
+
 // Private function
 int resizeUp(ArrayList* this);
 int expand(ArrayList* this,int index);

@@ -418,34 +418,66 @@ int al_containsAll(ArrayList* this,ArrayList* this2)
  * \return int Return (-1) if Error [pList or pFunc are NULL pointer]
  *                  - (0) if ok
  */
+/** \brief Sorts objects of list, use compare pFunc
+ * \param pList ArrayList* Pointer to arrayList
+ * \param pFunc (*pFunc) Pointer to fuction to compare elements of arrayList
+ * \param order int  [1] indicate UP - [0] indicate DOWN
+ * \return int Return (-1) if Error [pList or pFunc are NULL pointer]
+ *                  - (0) if ok
+ */
 int al_sort(ArrayList* this, int (*pFunc)(void* ,void*), int order)
 {
+
     int returnAux = -1;
-    void* temp;
-    int j,i;
-    if(this!=NULL && (order==0 || order==1))
+    int i,j;
+    void *temp;
+
+    if(this != NULL && (*pFunc) != NULL)
     {
-        for(i=1;i<al_len(this);i++)
-        {
-            temp=al_get(this,i);
-            j=i;
-            while(j>0 && pFunc(temp, al_get(this,j-1)) > 0)
+
+       switch(order)
+       {
+           case 0:
+           for(i = 1; i < al_len(this); i++)
             {
-                if(order==1)
+                temp = *(this->pElements+i);
+                j = i -1;
+
+                while( j >= 0 &&  1 == pFunc(temp,*(this->pElements+j)))
                 {
-                    *(this->pElements+j)=*(this->pElements+(j-1));
+                    *(this->pElements+j+1) = *(this->pElements+j);
                     j--;
                 }
-                if(order==0)
-                {
-                    *(this->pElements+(j-1))=*(this->pElements+j);
-                    j--;
-                }
+
+                *(this->pElements+j+1) = temp;
             }
-            *(this->pElements+j)=temp;//(?)
-        }
+            returnAux = 0;
+        break;
+
+       case 1:
+            for(i = 1; i < al_len(this); i++)
+            {
+                 temp = *(this->pElements+i);
+                j = i -1;
+
+                while( j >= 0 && -1 == pFunc(temp,*(this->pElements+j)))
+                {
+                    *(this->pElements+j+1) = *(this->pElements+j);
+                    j--;
+                }
+
+                *(this->pElements+j+1) = temp;
+            }
+            returnAux = 0;
+        break;
+
+       default:
+            returnAux = -1;
+        break;
+            }
 
     }
+
     return returnAux;
 }
 
@@ -525,11 +557,11 @@ int contract(ArrayList* this,int index)
     return returnAux;
 }
 
-/** \brief
+/** \brief Itera los elementos de la lista pasada, pasandole cada uno a una funcion
  *
- * \param
- * \param
- * \return
+ * \param ArrayList* this la lista a iterar
+ * \param void(*pFunc)(void*) la funcion a utilizar
+ * \return void
  *
  */
 
@@ -545,11 +577,13 @@ int contract(ArrayList* this,int index)
      }
  }
 
-/** \brief
+/** \brief Itera los elementos de la lista pasada, y dependiendo del resultado de una de las funciones,
+            le pasa el elemento a otra funcion
  *
- * \param
- * \param
- * \return
+ * \param ArrayList* this la lista a iterar
+ * \param void(*pFunc)(void*) la funcion a la que se le pasa el elemento
+ * \param int(*pFuncCriterio)(void*) la funcion que determina si el lemento debe o no pasar a pfunc
+ * \return void
  *
  */
 
@@ -566,4 +600,34 @@ void al_mapReloaded(ArrayList* this, void(*pFunc)(void*), int(*pFuncCriterio)(vo
              }
          }
      }
+ }
+
+/** \brief filtra los elementos de una lista dependiendo de el retorno de otra funcion
+ *
+ * \param ArrayList* this la lista a filtrar
+ * \param (*pFunc)(void*) la funcion que determina si se filtra o no el elemento
+ * \return ArrayList* la lista filtrada
+ *
+ */
+
+
+ArrayList* al_filter(ArrayList* this, int(*pFunc)(void*))
+ {
+     int i;
+
+     ArrayList* listaFiltrada;
+     listaFiltrada=al_newArrayList();
+
+     if(this!=NULL)
+     {
+         for(i=0;i<al_len(this);i++)
+         {
+             if(pFunc(al_get(this,i)) == 1)
+             {
+                 al_add(listaFiltrada,al_get(this,i));
+             }
+         }
+     }
+
+     return listaFiltrada;
  }
